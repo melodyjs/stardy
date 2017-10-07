@@ -7,8 +7,13 @@
   	"Orientations": "Portrait"
   },
   "Includes": [
+    "Main.ux:UXFile",
     "MainView.js:File",
     "MainView.ux:UXFile",
+    "TimeLine.js:File",
+    "TimeLine.ux:UXFile",
+    "Sidebar.ux:UXFile",
+    "NewsItem.ux:UXFile",
     "Assets/*.png:Bundle",
     "Assets/Faces/*.jpg:Bundle"
   ]

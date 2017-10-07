@@ -1,0 +1,7 @@
+<App>
+	<Router ux:Name="router" />
+    <Navigator DefaultPath="MainView">
+        <MainView ux:Template="MainView" router="router" />
+        <TimeLine ux:Template="TimeLine" router="router" />
+    </Navigator>
+</App>
