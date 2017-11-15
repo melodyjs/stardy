@@ -1,7 +1,119 @@
 <App>
 	<Router ux:Name="router" />
     <Navigator DefaultPath="MainView">
-        <MainView ux:Template="MainView" router="router" />
+        <MainView ux:Template="MainView" router="router">
+            <Grid Rows="auto,1*">
+
+            <Panel ux:Class="ExploreItem" Margin="20" CardAlignment="Left" BoxSizing="  FillAspect" Aspect="1.85" InDetailsMode="false">
+                <Panel ux:Dependency="detailsBannerImagePanel" />
+                <Panel ux:Dependency="detailsChatPanel" />
+                <Panel ux:Dependency="detailsFilesPanel" />
+                <Panel ux:Dependency="detailsToDoListPanel" />
+
+                <bool ux:Property="InDetailsMode" /> 
+
+                <string ux:Property="ImageName" />
+                <string ux:Property="Country" />
+                <float4 ux:Property="ForegroundColor" />
+                <Alignment ux:Property="CardAlignment" />
+
+            <Panel ux:Name="placeContainer" Width="55%" Alignment="{ReadProperty CardAlignment}">
+                <Panel ux:Name="ChatPanel">
+                    <StackPanel Width="80%" Alignment="CenterLeft" Margin="32,0,0,0">
+                        <Text Value="{ReadProperty ImageName}" TextColor="#fff" FontSize="26 * (width(placeContainer) / 230)" TextWrapping="Wrap" />
+                        <Text Value="{ReadProperty Country}" TextColor="#fff" FontSize="12 * (width(placeContainer) / 230)" Margin="0,20,0,0" />
+                    </StackPanel>
+
+                    <Rectangle Color="{ReadProperty ForegroundColor}" Opacity="0.9" Layer="Background" />
+                </Panel>
+            </Panel>
+
+            <Panel Width="60%" Alignment="{ReadProperty CardAlignment}">
+                <Panel ux:Name="FilesPanel" Color="#fff" Opacity="0">
+                    <Grid ux:Name="FilesPanelContent" Rows="1*,1*" Padding="30" Opacity="0">
+                        <Translation ux:Name="FilesPanelContentTrans" Y="0.15" RelativeTo="Size" />
+                        <Each Items="{numbers}">
+                            <Grid Rows="1*,1*" Height="60">
+                                <Text Value="{title}" FontSize="20" />
+                                <Text Value="{ToDoList}" FontSize="10" TextColor="#aaa" />
+                            </Grid>
+                        </Each>
+                    </Grid>
+                </Panel>
+            </Panel>
+
+            <Panel ux:Name="BannerImange" Height="85%">
+                <Image ux:Name="img" LayoutMaster="BannerImage" StretchMode="UniformToFill" File="{image}" /> 
+            </Panel>
+
+            <WhileTrue Value="{ReadProperty InDetailsMode}">
+                <Move Easing="CubicInOut" Target="img" Vector="1" RelativeTo="PositionOffset" RelativeNode="detailsBannerImagePanel" Duration="0.6" />
+                <Resize Easing="CubicInOut" Target="img" Vector="1" RelativeTo="Size" RelativeNode="detailsBannerImagePanel" Duration="0.6" />
+
+
+                <Move Easing="CubicInOut" Target="ChatPanel" Vector="1" RelativeTo="PositionOffset" RelativeNode="detailsChatPanel" Duration="0.6" />
+                <Resize Easing="CubicInOut" Target="ChatPanel" Vector="1" RelativeTo="Size" RelativeNode="detailsChatPanel" Duration="0.6" />
+
+                <Move Easing="CubicInOut" Target="FilesPanel" Vector="1" RelativeTo="PositionOffset" RelativeNode="detailsFilesPanel" Duration="0.6" />
+                <Resize Easing="CubicInOut" Target="FilesPanel" Vector="1" RelativeTo="Size" RelativeNode="detailsFilesPanel" Duration="0.6" />
+
+                <Change img.LayoutMaster="detailsBannerImagePanel" Delay="0.6" />
+                <Change ChatPanel.LayoutMaster="detailsChatPanel" Delay="0.6" />
+                <Change FilesPanel.LayoutMaster="detailsFilesPanel" Delay="0.6" />
+
+
+                <Change FilesPanel.Opacity="1" Duration="0.6" />
+
+                <Change FilesPanelContent.Opacity="1" Delay="0.45" Duration="0.35" />
+                <Change FilesPanelContentTrans.Y="0" Duration="0.35" Delay="0.4" Easing="CubicInOut" />
+
+                <Change ToDoListPanel.Opacity="1" Duration="0.35" Delay="0.55" />
+                <Change ToDoListPanelTrans.Y="0" Duration="0.35" Delay="0.55" Easing="CubicInOut" />
+                <Change ToDoListPanel.HitTestMode="LocalBoundsAndChildren" />
+
+                <BringToFront /> 
+            </WhileTrue>
+
+            <Grid ux:Name="ToDoListPanel" LayoutMaster="detailsToDoListPanel" Opacity="0" HitTestMode="None" Rows="1*,50">
+                <Translation ux:Name="ToDoListPanelTrans" Y="0.2" RelativeTo="Size" />
+                <PageControl ux:Name="ToDoListPanelControl">
+                    <Each Items="{todolist}">
+                        <StackPanel Alignment="Top" Margin="30">
+                            <Text Value="ToDoList" TextColor="#fff" />
+                            <Text TextWrapping="Wrap" TextColor="#fff" Margin="0,15,0,0" FontSize="14" Value="{}" />
+                        </StackPanel>
+                    </Each>
+                </PageControl>
+                <PageIndicator Navigation="ToDoListControl" Alignment="Center">
+                    <Circle ux:Template="Dot" Width="6" Height="6" Margin="5">
+                        <SolidColor Color="1,1,1,0.3" ux:Name="TheColor" />
+                        <Stroke Width="1" Color="#fff" />
+                        <ActivatingAnimation>
+                            <Change TheColor.Color="#fff" />
+                            <Scale Factor="1.2" />
+                        </ActivatingAnimation>
+                    </Circle>
+                </PageIndicator>
+            </Grid>
+
+            <WhileTrue Value="{Read current} != {id} &amp;&amp; {inDetailsMode}">
+                <Change this.Opacity="0" Duration=".4" />
+                <Change this.HitTestMode="None" />
+                <Move Y="100" Duration="0.4" />
+            </WhileTrue>
+        </Panel>
+
+
+        <Panel Row="0" RowSpan="3">
+            <Grid Rows="3*,180,3*" Columns="1*,1*">
+                <Panel ux:Name="BannerImagePanel" ColumnSpan="2" Row="0" Column="0" />
+                <Panel ux:Name="ChatPanel" Row="1" Column="0" />
+                <Panel ux:Name="FilesPanel" Row="1" Column="1" />
+                <Panel ux:Name="ToDoListPanel" Row="2" Column="0" ColumnSpan="2" />
+            </Grid>
+        </Panel>
+    </Grid>
+        </MainView>
         <TimeLine ux:Template="TimeLine" router="router" />
     </Navigator>
 </App>
