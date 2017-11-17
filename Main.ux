@@ -1,6 +1,7 @@
 <App>
 	<Router ux:Name="router" />
-    <Navigator DefaultPath="MainView">
+    <Navigator DefaultPath="Login">
+    	<Login ux:Template="Login" router="router" />
         <MainView ux:Template="MainView" router="router" />
         <TimeLine ux:Template="TimeLine" router="router" />
     </Navigator>

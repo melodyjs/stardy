@@ -1,3 +1,6 @@
+build/Local/Designer1/cache/ux11/Login.g.uno
+build/Local/Designer1/cache/ux11/TaskItem.g.uno
+build/Local/Designer1/cache/ux11/CalendarText.g.uno
 build/Local/Designer1/cache/ux11/Main.g.uno
 build/Local/Designer1/cache/ux11/MainView.g.uno
 build/Local/Designer1/cache/ux11/Card.g.uno
