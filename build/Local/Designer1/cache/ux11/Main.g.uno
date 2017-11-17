@@ -6,12 +6,33 @@ public partial class Main: Fuse.App
     {
         [Uno.WeakReference] internal readonly Main __parent;
         [Uno.WeakReference] internal readonly Main __parentInstance;
-        public Template(Main parent, Main parentInstance): base("MainView", false)
+        public Template(Main parent, Main parentInstance): base("Login", false)
         {
             __parent = parent;
             __parentInstance = parentInstance;
         }
         static Template()
+        {
+        }
+        public override object New()
+        {
+            var __self = new global::Login(__parent.router);
+            __self.Name = __selector0;
+            return __self;
+        }
+        static global::Uno.UX.Selector __selector0 = "Login";
+    }
+    [Uno.Compiler.UxGenerated]
+    public partial class Template1: Uno.UX.Template
+    {
+        [Uno.WeakReference] internal readonly Main __parent;
+        [Uno.WeakReference] internal readonly Main __parentInstance;
+        public Template1(Main parent, Main parentInstance): base("MainView", false)
+        {
+            __parent = parent;
+            __parentInstance = parentInstance;
+        }
+        static Template1()
         {
         }
         public override object New()
@@ -23,16 +44,16 @@ public partial class Main: Fuse.App
         static global::Uno.UX.Selector __selector0 = "MainView";
     }
     [Uno.Compiler.UxGenerated]
-    public partial class Template1: Uno.UX.Template
+    public partial class Template2: Uno.UX.Template
     {
         [Uno.WeakReference] internal readonly Main __parent;
         [Uno.WeakReference] internal readonly Main __parentInstance;
-        public Template1(Main parent, Main parentInstance): base("TimeLine", false)
+        public Template2(Main parent, Main parentInstance): base("TimeLine", false)
         {
             __parent = parent;
             __parentInstance = parentInstance;
         }
-        static Template1()
+        static Template2()
         {
         }
         public override object New()
@@ -180,10 +201,12 @@ public partial class Main: Fuse.App
         var temp16 = new global::FuseJS.UserEvents();
         router = new global::Fuse.Navigation.Router();
         var temp17 = new global::Fuse.Controls.Navigator();
-        var MainView = new Template(this, this);
-        var TimeLine = new Template1(this, this);
+        var Login = new Template(this, this);
+        var MainView = new Template1(this, this);
+        var TimeLine = new Template2(this, this);
         router.Name = __selector0;
-        temp17.DefaultPath = "MainView";
+        temp17.DefaultPath = "Login";
+        temp17.Templates.Add(Login);
         temp17.Templates.Add(MainView);
         temp17.Templates.Add(TimeLine);
         this.Children.Add(router);

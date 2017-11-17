@@ -62,7 +62,7 @@
 					<Panel Margin="7,5,5,5" Height="32" Width="32" HitTestMode="LocalBounds">
 						<WhileTrue Value="{sidebarOpen}">
 							<Clicked>
-								<NavigateTo Target="content" />
+								<NavigateTo Target="content"/>
 							</Clicked>
 						</WhileTrue>
 						<WhileFalse Value="{sidebarOpen}">
@@ -82,13 +82,14 @@
 					</Panel>
 
 					<Text FontSize="22" Alignment="VerticalCenter" TextAlignment="Center"
-						Value="NEWS" Padding="2">
+						Value="INFO SHARE" Padding="2">
 						<Font File="Assets/fonts/AlegreyaSans-Bold.otf" />
 					</Text>
 
 					<Panel Margin="5,5,7,5" Height="32" Width="32" HitTestMode="LocalBounds">
 						<Clicked>
 							<DebugAction Message="Search clicked" />
+							<RouterModify How="GoBack" Style="fromTop"/>
 						</Clicked>
 						<Circle Height="20" Width="20">
 							<Stroke Width="2" Brush="#000" />

@@ -7,6 +7,8 @@
   	"Orientations": "Portrait"
   },
   "Includes": [
+    "Login.js:File",
+    "Login.ux:UXFile",
     "Main.ux:UXFile",
     "MainView.js:File",
     "MainView.ux:UXFile",

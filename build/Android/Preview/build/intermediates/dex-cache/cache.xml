@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        is-multidex="false"
+        jar="/Users/mac/Dropbox/[1 STORAGE]/2017-Fall/창의적통합설계1/Stardy/build/Android/Preview/app/build/intermediates/exploded-aar/com.android.support/animated-vector-drawable/23.4.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.3"
+        sha1="de4db3785756bfb0915a9f59a9b3f2fea7407be4">
+        <dex dex="/Users/mac/Dropbox/[1 STORAGE]/2017-Fall/창의적통합설계1/Stardy/build/Android/Preview/app/build/intermediates/pre-dexed/debug/com.android.support-animated-vector-drawable-23.4.0_f3ebcb6ff4da96104164a41488b912ffcb02d2a1.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/mac/Dropbox/[1 STORAGE]/2017-Fall/창의적통합설계1/Stardy/build/Android/Preview/app/src/main/libs/nv-websocket-client.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.3"
+        sha1="2e2859df4b1c217c768c1b4a23f54ef66af50140">
+        <dex dex="/Users/mac/Dropbox/[1 STORAGE]/2017-Fall/창의적통합설계1/Stardy/build/Android/Preview/app/build/intermediates/pre-dexed/debug/nv-websocket-client_f6c173101d6ba3fd37bf5ec2beb7666d5caca263.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/mac/Dropbox/[1 STORAGE]/2017-Fall/창의적통합설계1/Stardy/build/Android/Preview/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.4.0/jars/libs/internal_impl-23.4.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.3"
+        sha1="ea3c07504d2c8f4b13aa17c45c1b68ed9c1c3674">
+        <dex dex="/Users/mac/Dropbox/[1 STORAGE]/2017-Fall/창의적통합설계1/Stardy/build/Android/Preview/app/build/intermediates/pre-dexed/debug/internal_impl-23.4.0_7eca9c3c9fbd6f4049ac4bd66de935b22cafc4de.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/mac/Dropbox/[1 STORAGE]/2017-Fall/창의적통합설계1/Stardy/build/Android/Preview/app/build/intermediates/exploded-aar/com.android.support/design/23.4.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.3"
+        sha1="5326d9a850d491714fef8cbfaa9ea3416f0bf0d2">
+        <dex dex="/Users/mac/Dropbox/[1 STORAGE]/2017-Fall/창의적통합설계1/Stardy/build/Android/Preview/app/build/intermediates/pre-dexed/debug/com.android.support-design-23.4.0_9f7673e9ede76c36b35b5bc4498cedf7c44c4965.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/mac/Library/Android/sdk/extras/android/m2repository/com/android/support/support-annotations/23.4.0/support-annotations-23.4.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.3"
+        sha1="ffbe55fdb2bb456b1485831706a9eac3300bb6b8">
+        <dex dex="/Users/mac/Dropbox/[1 STORAGE]/2017-Fall/창의적통합설계1/Stardy/build/Android/Preview/app/build/intermediates/pre-dexed/debug/support-annotations-23.4.0_e6c7d17aa3e7d56288071cf003069a479f1ee1e4.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/mac/Dropbox/[1 STORAGE]/2017-Fall/창의적통합설계1/Stardy/build/Android/Preview/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.4.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.3"
+        sha1="548f06de403a9409f00554b3ee12a9fdea0e236c">
+        <dex dex="/Users/mac/Dropbox/[1 STORAGE]/2017-Fall/창의적통합설계1/Stardy/build/Android/Preview/app/build/intermediates/pre-dexed/debug/com.android.support-appcompat-v7-23.4.0_1210a94d8ab53b3f2b80227dfc4a14d29fa5be01.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/mac/Dropbox/[1 STORAGE]/2017-Fall/창의적통합설계1/Stardy/build/Android/Preview/app/build/intermediates/exploded-aar/com.android.support/recyclerview-v7/23.4.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.3"
+        sha1="ec75036c3c52e451d0cde50a5aedaf5fd32354a0">
+        <dex dex="/Users/mac/Dropbox/[1 STORAGE]/2017-Fall/창의적통합설계1/Stardy/build/Android/Preview/app/build/intermediates/pre-dexed/debug/com.android.support-recyclerview-v7-23.4.0_59a8c4ae7bd86165e9b3cc9431e72c996c5fd9df.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/mac/Dropbox/[1 STORAGE]/2017-Fall/창의적통합설계1/Stardy/build/Android/Preview/app/build/intermediates/exploded-aar/com.android.support/support-vector-drawable/23.4.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.3"
+        sha1="c2c594cace5d83a3227b2b6e658ecbfd586d3ed9">
+        <dex dex="/Users/mac/Dropbox/[1 STORAGE]/2017-Fall/창의적통합설계1/Stardy/build/Android/Preview/app/build/intermediates/pre-dexed/debug/com.android.support-support-vector-drawable-23.4.0_b5416cc0f43db6d3a79e1a186a5b7ae387a9162e.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/mac/Dropbox/[1 STORAGE]/2017-Fall/창의적통합설계1/Stardy/build/Android/Preview/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.4.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.3"
+        sha1="67bd36ee9340ec7c254108936ad16b24bed160cc">
+        <dex dex="/Users/mac/Dropbox/[1 STORAGE]/2017-Fall/창의적통합설계1/Stardy/build/Android/Preview/app/build/intermediates/pre-dexed/debug/com.android.support-support-v4-23.4.0_9b2d99f4bdf876a49ffaa6a2fc4e44d01ba21898.jar" />
+    </item>
+
+</items>
