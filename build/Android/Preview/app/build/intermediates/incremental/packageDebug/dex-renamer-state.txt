@@ -1,0 +1,4 @@
+#Sat Oct 07 17:29:10 KST 2017
+base.0=/Users/mac/Dropbox/[1 STORAGE]/2017-Fall/창의적통합설계1/Stardy/build/Android/Preview/app/build/intermediates/transforms/dex/debug/folders/1000/1f/main
+renamed.0=classes.dex
+file.0=/Users/mac/Dropbox/[1 STORAGE]/2017-Fall/창의적통합설계1/Stardy/build/Android/Preview/app/build/intermediates/transforms/dex/debug/folders/1000/1f/main/classes.dex
