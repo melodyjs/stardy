@@ -1,0 +1,31 @@
+<Page ux:Class="AddGroup">
+	<Router ux:Dependency="router"/>
+	<Panel>
+		<JavaScript>
+			var Observable = require("FuseJS/Observable");
+			var groupName = Observable("Enter Group Name Here");
+			var topic = Observable("Enter Topic Here");
+			var intro = Observable("Enter Short Intro Here");
+
+			module.exports = {
+				groupName : groupName,
+				topic : topic,
+				intro : intro
+			};
+		</JavaScript>
+		<ScrollView>
+			<StackPanel>
+				<Text>Group Name:</Text>
+				<TextBox Value="{groupName}" />
+
+				<Text>Topic:</Text>
+				<TextBox Value="{topic}"/>
+
+				<Text>Intro:</Text>
+				<TextBox Value="{intro}" TextWrapping="Wrap"/>
+
+			</StackPanel>
+		</ScrollView>
+	</Panel>
+</Page>
+			
