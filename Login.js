@@ -19,8 +19,50 @@ function loginPressed(){
 
 }
 
+var leftPanelOpen = Observable(false);
+var leftPanelWide = Observable(false);
+
+function toggleLeftPanelOpen(){
+	if (leftPanelOpen.value) {
+		leftPanelOpen.value = false;
+	}
+	else{
+		leftPanelOpen.value = true;
+	}
+}
+
+function setLeftPanelOpenTrue(){
+	if(!leftPanelOpen.value){
+		leftPanelOpen.value = true;
+	}
+}
+
+var rightPanelOpen = Observable(false);
+var rightPanelWide = Observable(false);
+
+function toggleRightPanelOpen(){
+	if (rightPanelOpen.value) {
+		rightPanelOpen.value = false;
+	}
+	else{
+		rightPanelOpen.value = true;
+	}
+}
+
+function setRightPanelOpenTrue(){
+	if(!rightPanelOpen.value){
+		rightPanelOpen.value = true;
+	}
+}
+
 
 module.exports = {
 	items: items,
-	loginPressed: loginPressed
+	loginPressed: loginPressed,
+	leftPanelOpen: leftPanelOpen,
+	toggleLeftPanelOpen: toggleLeftPanelOpen,
+	setLeftPanelOpenTrue: setLeftPanelOpenTrue,
+	rightPanelOpen: rightPanelOpen,
+	toggleRightPanelOpen: toggleRightPanelOpen,
+	setRightPanelOpenTrue: setRightPanelOpenTrue
 };
