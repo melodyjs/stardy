@@ -1,19 +1,19 @@
 <Page ux:Class="TimeLine">
-    <Router ux:Dependency="router" />
-    <JavaScript File="TimeLine.js" />
+	<Router ux:Dependency="router" />
+	<JavaScript File="TimeLine.js" />
 	<EdgeNavigator ux:Name="EdgeNavigator">
 		<JavaScript>
-			var Observable = require("FuseJS/Observable");
+		var Observable = require("FuseJS/Observable");
 
-			var data = Observable();
+		var data = Observable();
 
-			fetch('http://az664292.vo.msecnd.net/files/P6FteBeij9A7jTXL-edgenavresponse.json')
-			.then(function(response) { return response.json(); })
-			.then(function(responseObject) { data.value = responseObject; });
+		fetch('http://az664292.vo.msecnd.net/files/P6FteBeij9A7jTXL-edgenavresponse.json')
+		.then(function(response) { return response.json(); })
+		.then(function(responseObject) { data.value = responseObject; });
 
-			module.exports = {
-				data: data
-			};
+		module.exports = {
+			data: data
+		};
 		</JavaScript>
 
 		<LinearGradient StartPoint="0,0" EndPoint="0,1">
@@ -27,6 +27,7 @@
 			<BottomFrameBackground Dock="Bottom" />
 
 			<StackPanel Dock="Top">
+
 
 				<!-- This is the top ledge -->
 				<Grid Columns="auto,1*,auto">
@@ -44,17 +45,12 @@
 
 					<Panel Height="26" Width="80" Alignment="CenterRight">
 						<Panel Margin="5,5,35,5" Height="20" Width="20" Alignment="CenterLeft"> 
-							<Image File="Assets/search2.png" />
-							<Clicked>
-								<Toggle Target="searchClick"/>
-							</Clicked>
+							<Image File="Assets/search2.png">
+								<Clicked>
+									<Toggle Target="searchClick"/>
+								</Clicked>
+							</Image>
 						</Panel>
-
-						<Rectangle ux:Name="searchPanel" Color="#999" Height="0" Alignment="Top" Opacity=".9">
-						</Rectangle>
-						<WhileTrue ux:Name="searchClick">
-							<Change searchPanel.Height="50" Duration="0.2"/>
-						</WhileTrue>
 
 						<!-- Write post -->
 						<Panel Margin="5,5,15,5" Height="20" Width="20" Alignment="CenterRight" Clicked="{newPost}">
@@ -64,6 +60,11 @@
 				</Grid>
 				<Rectangle Height="1" Margin="0,0,0,0" Color="#333c48" />
 			</StackPanel>
+			<Rectangle ux:Name="searchPanel" Color="#999" Height="0" Alignment="Top" Opacity=".9">
+			</Rectangle>
+			<WhileTrue ux:Name="searchClick">
+				<Change searchPanel.Height="30" Duration="0.2"/>
+			</WhileTrue>	
 
 			<!-- This is the main scroll area -->
 			<ScrollView>
