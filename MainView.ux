@@ -74,7 +74,9 @@
 					<Change todoListPanel.Width="100%" Duration="0.2"/>
 					<Change todoListPanel.Height="30%" Duration="0.2"/>
 					<Change todoListPanel.Opacity="1" Duration="0.2"/>
+					<Change todoListText.Opacity="1" Duration="0.2"/>
 					<Move Target="todoListPanel" Y="0.35" RelativeTo="ParentSize" Duration="0.2"/>
+					<Move Target="todoListText" Y="0.35" RelativeTo="ParentSize" Duration="0.2"/>
 
 			</WhileTrue>
 
@@ -139,9 +141,12 @@
 		</Panel>
 
 		<Panel ux:Name="todoListPanel" Width="70%" Height="60%" Opacity="0">
-			<Rectangle ux:Name="todoListPanelGradient" Layer="Background" Color="#333333">
+			<Text ux:Name="todoListText" Color="#fff" FontSize="14" Value="스터디 성취도" Alignment="Center" Opacity="1"/>
+			<Rectangle ux:Name="todoListPanelGradient" Layer="Background" Color="#fff">
 				<Shadow />
+				<Text ux:Name="todoListtt" Color="#fff" FontSize="14" Value="스터디 성취도" Alignment="Center" Opacity="1"/>
 			</Rectangle>
+			<Text ux:Name="todoListt" Color="#fff" FontSize="14" Value="스터디 성취도" Alignment="Center" Opacity="1"/>
 		</Panel>
 
 		<Panel ux:Name="bottomPanel" Width="70%" Height="60%" Opacity="0">

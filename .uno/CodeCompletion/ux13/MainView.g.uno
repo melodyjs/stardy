@@ -17,7 +17,7 @@ public partial class MainView: Fuse.Controls.Page
         }
         public override object New()
         {
-            var __self = new global::Card();
+            var __self = new global::CardMain();
             return __self;
         }
     }

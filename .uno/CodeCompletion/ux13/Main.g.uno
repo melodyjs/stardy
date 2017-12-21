@@ -205,7 +205,7 @@ public partial class Main: Fuse.App
         var MainView = new Template1(this, this);
         var TimeLine = new Template2(this, this);
         router.Name = __selector0;
-        temp17.DefaultPath = "MainView";
+        temp17.DefaultPath = "Login";
         temp17.Templates.Add(Login);
         temp17.Templates.Add(MainView);
         temp17.Templates.Add(TimeLine);

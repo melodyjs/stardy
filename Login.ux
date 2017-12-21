@@ -3,6 +3,10 @@
 	<Panel>
 		<Fuse.iOS.StatusBarConfig Style="Light" />
 
+		<Font File="Assets/fonts/RobotoCondensed-Bold.ttf" ux:Global="Bold" />
+		<Font File="Assets/fonts/RobotoCondensed-Regular.ttf" ux:Global="Regular" />
+		<Font File="Assets/fonts/RobotoCondensed-Light.ttf" ux:Global="Light" />
+
 		<Panel ux:Name="transitionScaleGuide" Width="500%" Height="500%" Alignment="Center" HitTestMode="None" BoxSizing="FillAspect" Aspect="1" />
 
 		<DockPanel ux:Class="TaskItem" Height="80" Margin="1" Background="#fff" Padding="15,20">
@@ -20,13 +24,16 @@
 
 				<Panel ux:Name="loggedInView" Opacity="0" IsEnabled="false">
 					<JavaScript File="MainView.js" />
-					<JavaScript>
+					<JavaScript>					
 				    router.bookmark({
-				        name: "myBookmark",
+				        name: "gotoTimeLine",
 				        path: ["TimeLine", {}]
 				    });
+				    router.bookmark({
+				        name: "gotoAddGroup",
+				        path: ["AddGroup", {}]
+				    });
 					</JavaScript>
-
 					<LinearGradient StartPoint="0,0" EndPoint="0,1">
 						<GradientStop Offset="0" Color="#EFE6EF" />
 						<GradientStop Offset="1" Color="#8FBEE9" />
@@ -61,10 +68,14 @@
 					</WhileTrue>
 
 					<Grid ux:Name="lowerGrid" ColumnCount="3" Height="30" Alignment="Bottom" Margin="20">
-						<Image File="Assets/Icons/addlocation.png" />
+						<Image File="Assets/Icons/addlocation.png">
+							<Clicked>
+								<RouterModify How="Push" Bookmark="gotoAddGroup" Transition="Transition"/>
+							</Clicked>
+						</Image>
 						<Image File="Assets/Icons/location.png">
 							<Clicked>
-								<RouterModify How="Push" Bookmark="myBookmark" Transition="Transition"/>
+								<RouterModify How="Push" Bookmark="gotoTimeLine" Transition="Transition"/>
 							</Clicked>
 						</Image>
 						<Image File="Assets/Icons/person.png" />
@@ -169,6 +180,101 @@
 							<Rectangle ux:Name="leftPanelGradient" Layer="Background" Color="#8FBEE9">
 								<Shadow />
 							</Rectangle>
+							<DockPanel ux:Name="appDock">
+								<StackPanel Dock="Top" Background="#B65B36" Opacity="0.9">
+									<StatusBarBackground />
+									<Fuse.iOS.StatusBarConfig Style="Light" />
+									<Panel>
+										<Image File="Assets/Icons/backButton.png" Alignment="CenterLeft" Margin="10" Height="20" Offset="0,2" />
+										<Text Value="FuseChat" TextAlignment="Center" Color="#fff" Font="Bold" FontSize="24" Margin="100,10,100,5"/>
+										<Image File="Assets/Icons/search.png" Alignment="CenterRight" Margin="0,0,40,0" Height="25" Offset="0,2">
+											<Clicked>
+												<Toggle Target="searchClick"/>
+											</Clicked>
+										</Image>
+										<Image File="Assets/Icons/menu.png" Alignment="CenterRight" Margin="10" Height="15" Offset="0,2">
+										</Image>
+										<LinearGradient>
+											<GradientStop Offset="0" Color="#00A2B0" />
+											<GradientStop Offset="1" Color="#00AC94" />
+										</LinearGradient>
+									</Panel>
+								</StackPanel>
+								<BottomBarBackground Dock="Bottom"/>
+								<Rectangle ux:Name="searchPanel" Color="#999" Height="0" Alignment="Top" Opacity="0.9">
+
+								</Rectangle>
+								<WhileTrue ux:Name="searchClick">
+									<Change searchPanel.Height = "50" Duration="0.2"/>
+								</WhileTrue>
+								<ScrollView ux:Name="scrollView">
+									<StackPanel Orientation="Vertical">
+										<Each Items="{messages}">
+											<Panel>
+												<Panel Background="#fff" ux:Name="contents">
+													<DockPanel Margin="7,1,7,0">
+														<Circle ux:Name="profile" Height="40" Width="40" Dock="Left" Margin="7,7,0,7" Alignment="TopLeft">
+															<ImageFill File="{icon}" />
+															<Shadow Size="1" />
+														</Circle>
+														<StackPanel ux:Name="messageStackPanel" Margin="7,3,7,7">
+															<Text Font="Regular" Value="{sender}" FontSize="14" Color="#555" />
+															<StackPanel Alignment="CenterLeft" MaxWidth="400" Orientation="Horizontal">
+																<Rectangle CornerRadius="10" MaxWidth="200" Color="#61C2B7">
+																	<Text TextWrapping="Wrap" Font="Light" Value="{content}" FontSize="14" Color="#fff" Margin="10,5,10,5" TextAlignment="Left" />
+																	<Shadow Angle="109" Size="0.5" Distance="1" Color="#999" />
+																	<LinearGradient AngleDegrees="45">
+																		<GradientStop Offset="0" Color="#00A2B1"/>
+																		<GradientStop Offset="1" Color="#00AC94"/>
+																	</LinearGradient>
+																</Rectangle>
+																<Text Font="Regular" Value="{time}" FontSize="10" Color="#999" Alignment="BottomLeft" Margin="5,0" />
+															</StackPanel>
+														</StackPanel>
+													</DockPanel>
+
+													<WhileTrue Value="{isMe}">
+														<Change profile.Height = "0"/>
+														<Change profile.Width = "0"/>
+														<Change messageStackPanel.Alignment = "Left"/>
+													</WhileTrue>
+												</Panel>
+											</Panel>
+										</Each>
+									</StackPanel>
+								</ScrollView>
+								<DockPanel ux:Name="bottomDock" Dock="Bottom">
+									<Panel Color="#aaa" ux:Name="writeChat" Alignment="Bottom">
+										<Rectangle ux:Name="bottomOpen" Width="0" Height="15" Alignment="TopLeft"/>
+										<Image ux:Name="bottomPlus" File="Assets/Icons/plus.png" Width="15" Height="15" Alignment="TopLeft" Margin="8,10,10,10">
+											<Clicked>
+												<Toggle Target="bottomPlusClick"/>
+											</Clicked>
+											<WhileTrue ux:Name="bottomPlusClick">
+												<Change bottomOpen.Height = "200" Duration="0.2"/>
+												<Rotate Target="bottomPlus" DegreesZ="45" Duration="0.2"/>
+											</WhileTrue>
+										</Image>
+										<Rectangle CornerRadius="10" Margin="30,5,50,5" Color="#fff" Alignment="Top">
+											<TextInput ux:Name="text" Value="{sendText}" PlaceholderText="Message" PlaceholderColor="#999" TextAlignment="Left" Alignment="Top" Padding="5" FontSize="12" TextWrapping="Wrap">
+
+											</TextInput>
+										</Rectangle>
+										<Rectangle Color="#00AB96" CornerRadius="30" Margin="5,5,5,0" Height="25" Width="40" Alignment="TopRight">
+											<Text Value="Send" Color="#fff" FontSize="12" TextAlignment="Center" Font="Bold" Alignment="Center" />
+
+											<Clicked>
+												<Toggle Target="sendClick"/>
+											</Clicked>
+
+											<WhileTrue ux:Name="sendClick">
+												<Callback Handler="{sendItem}"/>
+												<Toggle Target="sendClick"/>
+											</WhileTrue>
+										</Rectangle>
+									</Panel>
+								</DockPanel>
+							</DockPanel>
 						</Panel>
 
 						<Panel ux:Name="rightPanel" Width="0%" Height="0%" Opacity="0">
@@ -180,6 +286,7 @@
 						<Panel ux:Name="todoListPanel" Width="70%" Height="60%" Opacity="0">
 							<Rectangle ux:Name="todoListPanelGradient" Layer="Background" Color="#333333">
 								<Shadow />
+								<Text Color="#eee" FontSize="14" Value="To-Do List" Margin="10,15,10,10" Alignment="TopLeft" />
 							</Rectangle>
 						</Panel>
 
@@ -273,6 +380,8 @@
 		<WhileTrue ux:Name="showLoggedIn">
 			<Change loggedInView.Opacity="1" Delay="0.1" Duration="0.65" DurationBack="0.35" DelayBack="0.2" Easing="CubicInOut"/>
 			<Change loggedInView.IsEnabled="true"/>
+			<Change scaleAndFade.Value="false"/>
+			<Change loggedIn.Value="true" Duration="0.6"/>
 		</WhileTrue>
 
 		<Grid ux:Name="loggedOutView" Rows="1.5*,auto,1*" Padding="40,0">
@@ -298,6 +407,9 @@
 				<Rectangle ux:Name="rectNormalScale" CornerRadius="10" Color="#007AFF" Width="200" Height="30"/>
 				<Circle ux:Name="loadingButton" Opacity="0" Alignment="Center" Layer="Background" Width="240" Height="240" Color="#007AFF">
 					<Scaling Factor="0.25" />
+					<WhileTrue ux:Name="loggedIn">
+						<Scaling Factor="0.01"/>
+					</WhileTrue>
 				</Circle>
 			</Panel>
 

@@ -1,9 +1,9 @@
 .uno/CodeCompletion/ux13/Login.g.uno
 .uno/CodeCompletion/ux13/TaskItem.g.uno
-.uno/CodeCompletion/ux13/CalendarText.g.uno
+.uno/CodeCompletion/ux13/Card.g.uno
 .uno/CodeCompletion/ux13/Main.g.uno
 .uno/CodeCompletion/ux13/MainView.g.uno
-.uno/CodeCompletion/ux13/Card.g.uno
+.uno/CodeCompletion/ux13/CardMain.g.uno
 .uno/CodeCompletion/ux13/TimeLine.g.uno
 .uno/CodeCompletion/ux13/Sidebar.g.uno
 .uno/CodeCompletion/ux13/Username.g.uno

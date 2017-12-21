@@ -97,14 +97,6 @@ sealed class stardy_FuseDrawingImageFill_File_Property: Uno.UX.Property<Uno.UX.F
     public override Uno.UX.FileSource Get(global::Uno.UX.PropertyObject obj) { return ((Fuse.Drawing.ImageFill)obj).File; }
     public override void Set(global::Uno.UX.PropertyObject obj, Uno.UX.FileSource v, global::Uno.UX.IPropertyListener origin) { ((Fuse.Drawing.ImageFill)obj).File = v; }
 }
-sealed class stardy_FuseReactiveEach_Count_Property: Uno.UX.Property<int>
-{
-    [Uno.WeakReference] readonly Fuse.Reactive.Each _obj;
-    public stardy_FuseReactiveEach_Count_Property(Fuse.Reactive.Each obj, global::Uno.UX.Selector name) : base(name) { _obj = obj; }
-    public override global::Uno.UX.PropertyObject Object { get { return _obj; } }
-    public override int Get(global::Uno.UX.PropertyObject obj) { return ((Fuse.Reactive.Each)obj).Count; }
-    public override void Set(global::Uno.UX.PropertyObject obj, int v, global::Uno.UX.IPropertyListener origin) { ((Fuse.Reactive.Each)obj).Count = v; }
-}
 sealed class stardy_FuseReactiveEach_Items_Property: Uno.UX.Property<object>
 {
     [Uno.WeakReference] readonly Fuse.Reactive.Each _obj;
@@ -113,6 +105,31 @@ sealed class stardy_FuseReactiveEach_Items_Property: Uno.UX.Property<object>
     public override object Get(global::Uno.UX.PropertyObject obj) { return ((Fuse.Reactive.Each)obj).Items; }
     public override void Set(global::Uno.UX.PropertyObject obj, object v, global::Uno.UX.IPropertyListener origin) { ((Fuse.Reactive.Each)obj).Items = v; }
 }
+sealed class stardy_FuseElementsElement_Alignment_Property: Uno.UX.Property<Fuse.Elements.Alignment>
+{
+    [Uno.WeakReference] readonly Fuse.Elements.Element _obj;
+    public stardy_FuseElementsElement_Alignment_Property(Fuse.Elements.Element obj, global::Uno.UX.Selector name) : base(name) { _obj = obj; }
+    public override global::Uno.UX.PropertyObject Object { get { return _obj; } }
+    public override Fuse.Elements.Alignment Get(global::Uno.UX.PropertyObject obj) { return ((Fuse.Elements.Element)obj).Alignment; }
+    public override void Set(global::Uno.UX.PropertyObject obj, Fuse.Elements.Alignment v, global::Uno.UX.IPropertyListener origin) { ((Fuse.Elements.Element)obj).Alignment = v; }
+}
+sealed class stardy_FuseControlsTextInputControl_Value_Property: Uno.UX.Property<string>
+{
+    [Uno.WeakReference] readonly Fuse.Controls.TextInputControl _obj;
+    public stardy_FuseControlsTextInputControl_Value_Property(Fuse.Controls.TextInputControl obj, global::Uno.UX.Selector name) : base(name) { _obj = obj; }
+    public override global::Uno.UX.PropertyObject Object { get { return _obj; } }
+    public override string Get(global::Uno.UX.PropertyObject obj) { return ((Fuse.Controls.TextInputControl)obj).Value; }
+    public override void Set(global::Uno.UX.PropertyObject obj, string v, global::Uno.UX.IPropertyListener origin) { ((Fuse.Controls.TextInputControl)obj).SetValue(v, origin); }
+    public override bool SupportsOriginSetter { get { return true; } }
+}
+sealed class stardy_FuseReactiveEach_Count_Property: Uno.UX.Property<int>
+{
+    [Uno.WeakReference] readonly Fuse.Reactive.Each _obj;
+    public stardy_FuseReactiveEach_Count_Property(Fuse.Reactive.Each obj, global::Uno.UX.Selector name) : base(name) { _obj = obj; }
+    public override global::Uno.UX.PropertyObject Object { get { return _obj; } }
+    public override int Get(global::Uno.UX.PropertyObject obj) { return ((Fuse.Reactive.Each)obj).Count; }
+    public override void Set(global::Uno.UX.PropertyObject obj, int v, global::Uno.UX.IPropertyListener origin) { ((Fuse.Reactive.Each)obj).Count = v; }
+}
 sealed class stardy_FuseControlsEllipticalShape_LengthAngleDegrees_Property: Uno.UX.Property<float>
 {
     [Uno.WeakReference] readonly Fuse.Controls.EllipticalShape _obj;
@@ -120,30 +137,6 @@ sealed class stardy_FuseControlsEllipticalShape_LengthAngleDegrees_Property: Uno
     public override global::Uno.UX.PropertyObject Object { get { return _obj; } }
     public override float Get(global::Uno.UX.PropertyObject obj) { return ((Fuse.Controls.EllipticalShape)obj).LengthAngleDegrees; }
     public override void Set(global::Uno.UX.PropertyObject obj, float v, global::Uno.UX.IPropertyListener origin) { ((Fuse.Controls.EllipticalShape)obj).LengthAngleDegrees = v; }
-}
-sealed class stardy_FuseTranslation_X_Property: Uno.UX.Property<float>
-{
-    [Uno.WeakReference] readonly Fuse.Translation _obj;
-    public stardy_FuseTranslation_X_Property(Fuse.Translation obj, global::Uno.UX.Selector name) : base(name) { _obj = obj; }
-    public override global::Uno.UX.PropertyObject Object { get { return _obj; } }
-    public override float Get(global::Uno.UX.PropertyObject obj) { return ((Fuse.Translation)obj).X; }
-    public override void Set(global::Uno.UX.PropertyObject obj, float v, global::Uno.UX.IPropertyListener origin) { ((Fuse.Translation)obj).X = v; }
-}
-sealed class stardy_FuseTranslation_Y_Property: Uno.UX.Property<float>
-{
-    [Uno.WeakReference] readonly Fuse.Translation _obj;
-    public stardy_FuseTranslation_Y_Property(Fuse.Translation obj, global::Uno.UX.Selector name) : base(name) { _obj = obj; }
-    public override global::Uno.UX.PropertyObject Object { get { return _obj; } }
-    public override float Get(global::Uno.UX.PropertyObject obj) { return ((Fuse.Translation)obj).Y; }
-    public override void Set(global::Uno.UX.PropertyObject obj, float v, global::Uno.UX.IPropertyListener origin) { ((Fuse.Translation)obj).Y = v; }
-}
-sealed class stardy_FuseRotation_Degrees_Property: Uno.UX.Property<float>
-{
-    [Uno.WeakReference] readonly Fuse.Rotation _obj;
-    public stardy_FuseRotation_Degrees_Property(Fuse.Rotation obj, global::Uno.UX.Selector name) : base(name) { _obj = obj; }
-    public override global::Uno.UX.PropertyObject Object { get { return _obj; } }
-    public override float Get(global::Uno.UX.PropertyObject obj) { return ((Fuse.Rotation)obj).Degrees; }
-    public override void Set(global::Uno.UX.PropertyObject obj, float v, global::Uno.UX.IPropertyListener origin) { ((Fuse.Rotation)obj).Degrees = v; }
 }
 sealed class stardy_FuseDrawingImageFill_Url_Property: Uno.UX.Property<string>
 {

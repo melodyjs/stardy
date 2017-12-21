@@ -34,8 +34,8 @@ public partial class TimeLine: Fuse.Controls.Page
     global::Uno.UX.Property<object> temp2_Items_inst;
     internal global::Fuse.Controls.EdgeNavigator EdgeNavigator;
     internal global::Sidebar menu;
-    internal global::Fuse.Reactive.EventBinding temp_eb3;
-    internal global::Fuse.Reactive.EventBinding temp_eb4;
+    internal global::Fuse.Reactive.EventBinding temp_eb7;
+    internal global::Fuse.Reactive.EventBinding temp_eb8;
     internal global::Fuse.Controls.DockPanel content;
     internal global::Fuse.Translation mainAppTranslation;
     internal global::Fuse.Controls.Rectangle topRectangle;
@@ -50,8 +50,8 @@ public partial class TimeLine: Fuse.Controls.Page
         "router",
         "EdgeNavigator",
         "menu",
-        "temp_eb3",
-        "temp_eb4",
+        "temp_eb7",
+        "temp_eb8",
         "content",
         "mainAppTranslation",
         "topRectangle",
@@ -118,10 +118,10 @@ public partial class TimeLine: Fuse.Controls.Page
         var temp19 = new global::Fuse.Animations.Change<Uno.UX.Size>(bottomRectangle_Width_inst);
         var temp20 = new global::Fuse.Navigation.WhileActive();
         var temp21 = new global::Fuse.Triggers.Actions.Callback();
-        temp_eb3 = new global::Fuse.Reactive.EventBinding(temp3);
+        temp_eb7 = new global::Fuse.Reactive.EventBinding(temp3);
         var temp22 = new global::Fuse.Navigation.WhileInactive();
         var temp23 = new global::Fuse.Triggers.Actions.Callback();
-        temp_eb4 = new global::Fuse.Reactive.EventBinding(temp4);
+        temp_eb8 = new global::Fuse.Reactive.EventBinding(temp4);
         content = new global::Fuse.Controls.DockPanel();
         var temp24 = new global::Fuse.Controls.StatusBarBackground();
         var temp25 = new global::Fuse.Controls.BottomFrameBackground();
@@ -189,11 +189,11 @@ public partial class TimeLine: Fuse.Controls.Page
         temp18.Value = new Uno.UX.Size(28f, Uno.UX.Unit.Unspecified);
         temp19.Value = new Uno.UX.Size(28f, Uno.UX.Unit.Unspecified);
         temp20.Actions.Add(temp21);
-        temp20.Bindings.Add(temp_eb3);
-        temp21.Handler += temp_eb3.OnEvent;
+        temp20.Bindings.Add(temp_eb7);
+        temp21.Handler += temp_eb7.OnEvent;
         temp22.Actions.Add(temp23);
-        temp22.Bindings.Add(temp_eb4);
-        temp23.Handler += temp_eb4.OnEvent;
+        temp22.Bindings.Add(temp_eb8);
+        temp23.Handler += temp_eb8.OnEvent;
         content.Name = __selector9;
         content.Background = temp53;
         content.Children.Add(mainAppTranslation);
@@ -296,8 +296,8 @@ public partial class TimeLine: Fuse.Controls.Page
         __g_nametable.Objects.Add(router);
         __g_nametable.Objects.Add(EdgeNavigator);
         __g_nametable.Objects.Add(menu);
-        __g_nametable.Objects.Add(temp_eb3);
-        __g_nametable.Objects.Add(temp_eb4);
+        __g_nametable.Objects.Add(temp_eb7);
+        __g_nametable.Objects.Add(temp_eb8);
         __g_nametable.Objects.Add(content);
         __g_nametable.Objects.Add(mainAppTranslation);
         __g_nametable.Objects.Add(topRectangle);
