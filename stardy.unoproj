@@ -16,6 +16,8 @@
     "TimeLine.ux:UXFile",
     "Sidebar.ux:UXFile",
     "NewsItem.ux:UXFile",
+    "AddGroup.ux:UXFile",
+    "AddGroup.js:File",
     "Assets/*.png:Bundle",
     "Assets/Faces/*.jpg:Bundle"
   ]

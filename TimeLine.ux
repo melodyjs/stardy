@@ -27,30 +27,12 @@
 			};
 		</JavaScript>
 
-		<!-- Add a panel to the left edge -->
-		<Sidebar Width="180" ux:Name="menu" EdgeNavigation.Edge="Left">
-			<ActivatingAnimation>
-				<Change mainAppTranslation.X="180" />
-				<!-- Change to cross out -->
-				<Change topMenuTranslation.Y="0" />
-				<Change bottomMenuTranslation.Y="0" />
-				<Change middleRectangle.Opacity="0" Easing="CircularOut" />
-				<Change topMenuRotation.Degrees="45" Easing="ExponentialIn" />
-				<Change bottomMenuRotation.Degrees="-45" Easing="ExponentialIn" />
-				<Change topRectangle.Width="28" />
-				<Change bottomRectangle.Width="28" />
-			</ActivatingAnimation>
-			<WhileActive>
-				<Callback Handler="{setSidebarOpen}" />
-			</WhileActive>
-			<WhileInactive>
-				<Callback Handler="{setSidebarClosed}" />
-			</WhileInactive>
-		</Sidebar>
+		<LinearGradient StartPoint="0,0" EndPoint="0,1">
+			<GradientStop Offset="0" Color="#EFE6EF" />
+			<GradientStop Offset="1" Color="#8FBEE9" />
+		</LinearGradient>
 
-		<DockPanel ux:Name="content" Background="#fff">
-			<!-- Use this to move the main app area with the side menu -->
-			<Translation ux:Name="mainAppTranslation" />
+		<DockPanel ux:Name="content">
 
 			<StatusBarBackground Dock="Top" />
 			<BottomFrameBackground Dock="Bottom" />
@@ -58,49 +40,29 @@
 			<StackPanel Dock="Top">
 
 				<!-- This is the top ledge -->
-				<Grid Columns="auto,1*,auto"  Background="White">
-					<Panel Margin="7,5,5,5" Height="32" Width="32" HitTestMode="LocalBounds">
-						<WhileTrue Value="{sidebarOpen}">
-							<Clicked>
-								<NavigateTo Target="content"/>
-							</Clicked>
-						</WhileTrue>
-						<WhileFalse Value="{sidebarOpen}">
-							<Clicked>
-								<NavigateTo Target="menu" />
-							</Clicked>
-						</WhileFalse>
-						<Rectangle ux:Name="topRectangle" Height="2" Width="26" Color="#000">
-							<Translation Y="-9" ux:Name="topMenuTranslation" />
-							<Rotation ux:Name="topMenuRotation" />
-						</Rectangle>
-						<Rectangle ux:Name="middleRectangle" Height="2" Width="26" Color="#000" />
-						<Rectangle ux:Name="bottomRectangle" Height="2" Width="26" Color="#000">
-							<Translation Y="9" ux:Name="bottomMenuTranslation" />
-							<Rotation ux:Name="bottomMenuRotation" />
-						</Rectangle>
-					</Panel>
+				<Grid Columns="auto,1*,auto">
 
-					<Text FontSize="22" Alignment="VerticalCenter" TextAlignment="Center"
-						Value="INFO SHARE" Padding="2">
+					<Rectangle Height="30" Margin="5,7,5,5" Color="#fff" Alignment="CenterLeft">
+						<Clicked>
+							<RouterModify How="GoBack" Style="fromTop" />
+						</Clicked>
+						<Image File="Assets/backButton.png" />		
+					</Rectangle>
+
+					<Text FontSize="16" Alignment="Center" Value="정보 공유방" Margin="30,5,0,0">
 						<Font File="Assets/fonts/AlegreyaSans-Bold.otf" />
 					</Text>
 
-					<Panel Margin="5,5,7,5" Height="32" Width="32" HitTestMode="LocalBounds">
-						<Clicked>
-							<DebugAction Message="Search clicked" />
-							<RouterModify How="GoBack" Style="fromTop"/>
-						</Clicked>
-						<Circle Height="20" Width="20">
-							<Stroke Width="2" Brush="#000" />
-						</Circle>
-						<Rectangle Width="7" Height="3" Color="#000">
-							<Translation X="8" Y="8" />
-							<Rotation Degrees="45" />
-						</Rectangle>
-					</Panel>
+					<Panel Height="26" Width="80" Alignment="CenterRight">
+						<Panel Margin="5,5,35,5" Height="20" Width="20" Alignment="CenterLeft"> 
+							<Image File="Assets/search2.png" />
+						</Panel>
+						<Panel Margin="5,5,15,5" Height="20" Width="20" Alignment="CenterRight">
+							<Image File="Assets/write.png" />
+						</Panel>
+					</Panel>				
 				</Grid>
-				<Rectangle Height="1" Margin="0,5,0,0" Color="#333c48" />
+				<Rectangle Height="1" Margin="0,0,0,0" Color="#333c48" />
 			</StackPanel>
 
 			<!-- This is the main scroll area -->

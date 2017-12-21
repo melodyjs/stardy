@@ -1,7 +1,0 @@
-/Users/mac/Library/Android/sdk/ndk-bundle
-9
-armeabi-v7a
--O3 -g -DNDEBUG
-
- -I/usr/local/share/uno/Packages/UnoCore/1.2.2/prebuilt/Android/include -I/Users/mac/Library/Android/sdk/ndk-bundle/sources/android/support/include -I/usr/local/share/uno/Packages/Fuse.Scripting.V8/1.2.1 -I/usr/local/share/uno/Packages/Fuse.Text/1.2.1/harfbuzz/include
-/Users/mac/Library/Android/sdk/ndk-bundle/sources/cxx-stl/gnu-libstdc++/4.9/include

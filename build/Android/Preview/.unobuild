@@ -1,4 +1,0 @@
-$: -2132931705
-BuildCommand: build.sh
-RunCommand: run.sh
-Product: stardy.apk
