@@ -39,7 +39,7 @@
 						<Image File="Assets/Icons/backButton_black.png" />		
 					</Rectangle>
 
-					<Text FontSize="16" Alignment="Center" Value="정보 공유방" Margin="30,5,0,0">
+					<Text FontSize="16" Alignment="Center" Value="담벼락" Margin="30,5,0,0">
 						<Font File="Assets/fonts/AlegreyaSans-Bold.otf" />
 					</Text>
 
