@@ -31,11 +31,11 @@
 				<!-- This is the top ledge -->
 				<Grid Columns="auto,1*,auto">
 
-					<Rectangle Height="30" Margin="5,7,5,5" Color="#fff" Alignment="CenterLeft">
+					<Rectangle Height="30" Margin="5,7,5,5" Alignment="CenterLeft">
 						<Clicked>
 							<RouterModify How="GoBack" Style="fromTop" />
 						</Clicked>
-						<Image File="Assets/backButton.png" />		
+						<Image File="Assets/Icons/backButton_black.png" />		
 					</Rectangle>
 
 					<Text FontSize="16" Alignment="Center" Value="정보 공유방" Margin="30,5,0,0">
@@ -46,7 +46,9 @@
 						<Panel Margin="5,5,35,5" Height="20" Width="20" Alignment="CenterLeft"> 
 							<Image File="Assets/search2.png" />
 						</Panel>
-						<Panel Margin="5,5,15,5" Height="20" Width="20" Alignment="CenterRight">
+
+						<!-- Write post -->
+						<Panel Margin="5,5,15,5" Height="20" Width="20" Alignment="CenterRight" Clicked="{newPost}">
 							<Image File="Assets/write.png" />
 						</Panel>
 					</Panel>				
