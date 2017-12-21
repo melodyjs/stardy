@@ -6,8 +6,8 @@ public partial class AddGroup: Fuse.Controls.Page
     global::Uno.UX.Property<string> temp1_Value_inst;
     global::Uno.UX.Property<string> GroupTags_Value_inst;
     global::Uno.UX.Property<string> temp2_Value_inst;
-    internal global::Fuse.Reactive.EventBinding temp_eb10;
     internal global::Fuse.Reactive.EventBinding temp_eb11;
+    internal global::Fuse.Reactive.EventBinding temp_eb12;
     internal global::TitleText GroupName;
     internal global::TitleText GroupLocation;
     internal global::Fuse.Controls.TextBox GroupTags;
@@ -15,8 +15,8 @@ public partial class AddGroup: Fuse.Controls.Page
     global::Uno.UX.NameTable __g_nametable;
     static string[] __g_static_nametable = new string[] {
         "router",
-        "temp_eb10",
         "temp_eb11",
+        "temp_eb12",
         "GroupName",
         "GroupLocation",
         "GroupTags",
@@ -56,9 +56,9 @@ public partial class AddGroup: Fuse.Controls.Page
         var temp13 = new global::Fuse.Controls.DockPanel();
         var temp14 = new global::Fuse.Controls.Grid();
         var temp15 = new global::Fuse.Controls.Button();
-        temp_eb10 = new global::Fuse.Reactive.EventBinding(temp3);
+        temp_eb11 = new global::Fuse.Reactive.EventBinding(temp3);
         var temp16 = new global::Fuse.Controls.Button();
-        temp_eb11 = new global::Fuse.Reactive.EventBinding(temp4);
+        temp_eb12 = new global::Fuse.Reactive.EventBinding(temp4);
         var temp17 = new global::Fuse.Controls.ScrollView();
         var temp18 = new global::Fuse.Controls.StackPanel();
         var temp19 = new global::Fuse.Controls.StackPanel();
@@ -92,12 +92,12 @@ public partial class AddGroup: Fuse.Controls.Page
         temp14.Children.Add(temp16);
         temp15.Text = "Add";
         temp15.Color = Fuse.Drawing.Colors.White;
-        global::Fuse.Gestures.Clicked.AddHandler(temp15, temp_eb10.OnEvent);
-        temp15.Bindings.Add(temp_eb10);
+        global::Fuse.Gestures.Clicked.AddHandler(temp15, temp_eb11.OnEvent);
+        temp15.Bindings.Add(temp_eb11);
         temp16.Text = "Cancel";
         temp16.Color = Fuse.Drawing.Colors.White;
-        global::Fuse.Gestures.Clicked.AddHandler(temp16, temp_eb11.OnEvent);
-        temp16.Bindings.Add(temp_eb11);
+        global::Fuse.Gestures.Clicked.AddHandler(temp16, temp_eb12.OnEvent);
+        temp16.Bindings.Add(temp_eb12);
         temp17.Children.Add(temp18);
         temp18.ItemSpacing = 10f;
         temp18.Padding = float4(10f, 10f, 10f, 10f);
@@ -137,8 +137,8 @@ public partial class AddGroup: Fuse.Controls.Page
         temp2.Bindings.Add(temp27);
         __g_nametable.This = this;
         __g_nametable.Objects.Add(router);
-        __g_nametable.Objects.Add(temp_eb10);
         __g_nametable.Objects.Add(temp_eb11);
+        __g_nametable.Objects.Add(temp_eb12);
         __g_nametable.Objects.Add(GroupName);
         __g_nametable.Objects.Add(GroupLocation);
         __g_nametable.Objects.Add(GroupTags);
