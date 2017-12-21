@@ -45,11 +45,20 @@
 					<Panel Height="26" Width="80" Alignment="CenterRight">
 						<Panel Margin="5,5,35,5" Height="20" Width="20" Alignment="CenterLeft"> 
 							<Image File="Assets/search2.png" />
+							<Clicked>
+								<Toggle Target="searchClick"/>
+							</Clicked>
 						</Panel>
+
+						<Rectangle ux:Name="searchPanel" Color="#999" Height="0" Alignment="Top" Opacity=".9">
+						</Rectangle>
+						<WhileTrue ux:Name="searchClick">
+							<Change searchPanel.Height="50" Duration="0.2"/>
+						</WhileTrue>
 
 						<!-- Write post -->
 						<Panel Margin="5,5,15,5" Height="20" Width="20" Alignment="CenterRight" Clicked="{newPost}">
-							<Image File="Assets/write.png" />
+							<Image File="Assets/write_.png" />
 						</Panel>
 					</Panel>				
 				</Grid>
