@@ -5,14 +5,6 @@
 		<JavaScript>
 			var Observable = require("FuseJS/Observable");
 
-			var sidebarOpen = Observable(false);
-			function setSidebarOpen() {
-				sidebarOpen.value = true;
-			};
-			function setSidebarClosed() {
-				sidebarOpen.value = false;
-			};
-
 			var data = Observable();
 
 			fetch('http://az664292.vo.msecnd.net/files/P6FteBeij9A7jTXL-edgenavresponse.json')
@@ -20,10 +12,7 @@
 			.then(function(responseObject) { data.value = responseObject; });
 
 			module.exports = {
-				data: data,
-				sidebarOpen: sidebarOpen,
-				setSidebarOpen: setSidebarOpen,
-				setSidebarClosed: setSidebarClosed
+				data: data
 			};
 		</JavaScript>
 
