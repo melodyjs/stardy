@@ -107,15 +107,16 @@
 									<Change topPanelGradient.CornerRadius="0" Duration="0.2"/>
 									<Move Target="topPanel" Y="-0.22" RelativeTo="ParentSize" Duration="0.2"/>
 
-									<Change leftPanel.Width="50%" Duration="0.2"/>
-									<Change leftPanel.Height="40%" Duration="0.2"/>
+									<Change leftPanel.Width="80%" Duration="0.2"/>
+									<Change leftPanel.Height="60%" Duration="0.2"/>
 									<Change leftPanel.Opacity="1" Duration="0.2"/>
-									<Move Target="leftPanel" X="-0.25" RelativeTo="ParentSize" Duration="0.2"/>
+									<Move Target="leftPanel" X="-0.10" RelativeTo="ParentSize" Duration="0.2"/>
+									<Move Target="leftPanel" Y="0.02" RelativeTo="ParentSize" Duration="0.2"/>
 
-									<Change rightPanel.Width="50%" Duration="0.2"/>
+									<Change rightPanel.Width="20%" Duration="0.2"/>
 									<Change rightPanel.Height="40%" Duration="0.2"/>
 									<Change rightPanel.Opacity="1" Duration="0.2"/>
-									<Move Target="rightPanel" X="0.25" RelativeTo="ParentSize" Duration="0.2"/>
+									<Move Target="rightPanel" X="0.40" RelativeTo="ParentSize" Duration="0.2"/>
 
 									<Change bottomPanel.Width="100%" Duration="0.2"/>
 									<Change bottomPanel.Height="40%" Duration="0.2"/>
@@ -128,13 +129,41 @@
 
 							</WhileTrue>
 
+							<WhileTrue Value="{leftPanelOpen}">
+								<Move Target="topPanel" Y="-0.30" RelativeTo="ParentSize" Duration="0.2"/>
+
+								<Move Target="leftPanel" X="0.10" RelativeTo="ParentSize" Duration="0.2"/>
+								<Move Target="leftPanel" Y="-0.02" RelativeTo="ParentSize" Duration="0.2"/>
+								<Change leftPanel.Width="20%" Duration="0.2"/>	
+								<Change leftPanel.Height="40%" Duration="0.2"/>				
+
+								<Move Target="rightPanel" X="0.25" RelativeTo="ParentSize" Duration="0.3"/>
+								<Change rightPanel.Height="60%" Duration="0.2"/>	
+
+								<Move Target="todoListPanel" Y="0.35" RelativeTo="ParentSize" Duration="0.2"/>
+							</WhileTrue>
+
+							<WhileTrue Value="{rightPanelOpen}">
+								<Move Target="topPanel" Y="-0.30" RelativeTo="ParentSize" Duration="0.2"/>
+
+								<Move Target="leftPanel" X="-0.85" RelativeTo="ParentSize" Duration="0.2"/>
+								<Change leftPanel.Width="20%" Duration="0.2"/>	
+								<Change leftPanel.Height="40%" Duration="0.2"/>	
+
+								<Move Target="rightPanel" X="-0.40" RelativeTo="ParentSize" Duration="0.2"/>
+								<Change rightPanel.Width="80%" Duration="0.2"/>	
+								<Change rightPanel.Height="60%" Duration="0.2"/>	
+
+								<Move Target="todoListPanel" Y="0.35" RelativeTo="ParentSize" Duration="0.2"/>
+							</WhileTrue>
+
 						</ActivatingAnimation>
 						<EnteringAnimation Scale="0.5">
 							<Move X="-1.4" RelativeTo="ParentSize" Duration="0.5" />
 							<Callback Handler="{cardMoveRight}"/>
 
 							<WhileTrue Value="{cardOpen}">
-								<Move X="-0.2" RelativeTo="ParentSize" Duration="0.2" />
+								<Move X="-0.2" RelativeTo="ParentSize" Duration="0.2"/>
 							</WhileTrue>
 
 						</EnteringAnimation>
@@ -176,17 +205,55 @@
 
 						</Panel>
 
-						<Panel ux:Name="leftPanel" Width="0%" Height="0%" Opacity="0">
-							<Rectangle ux:Name="leftPanelGradient" Layer="Background" Color="#8FBEE9">
-								<Shadow />
+						<Panel ux:Name="todoListPanel" Width="70%" Height="60%" Opacity="0">
+							<Rectangle ux:Name="todoListPanelGradient" Layer="Background" Color="#333333">
+								<Shadow/>
+								<Text Color="#eee" FontSize="16" Value="To-Do List" Margin="10,20,10,10" Alignment="TopLeft"/>
+								<Text Color="#bbb" FontSize="14" Value="- Prepare Voca Exam on 16th" Margin="20,55,10,10" Alignment="TopLeft"/>
+								<Text Color="#00BAFF" FontSize="12" Value="(see schedule)" Margin="205,57,10,10" Alignment="TopLeft"/>
+								<Text Color="#bbb" FontSize="14" Value="- Writing Essay" Margin="20,85,10,10" Alignment="TopLeft"/>
+								<Text Color="#bbb" FontSize="14" Value="- Meeting on Thursday" Margin="20,115,10,10" Alignment="TopLeft"/>
+								<Text Color="#bbb" FontSize="14" Value="- Read Materials" Margin="20,145,10,10" Alignment="TopLeft"/>
+								<Text Color="#00BAFF" FontSize="12" Value="(download)" Margin="125,147,10,10" Alignment="TopLeft"/>
+								<Text Color="#bbb" FontSize="14" Value="●" Margin="-20,0,0,5" Alignment="BottomCenter"/>
+								<Text Color="#bbb" FontSize="12" Value="o" Margin="0,0,0,6.5" Alignment="BottomCenter"/>						
+								<Text Color="#bbb" FontSize="12" Value="o" Margin="20,0,0,6.5" Alignment="BottomCenter"/>
 							</Rectangle>
+						</Panel>
+
+						<Panel ux:Name="rightPanel" Width="0%" Height="0%" Opacity="0">
+							<Grid RowCount="3">
+								<Rectangle Color="#CDEAF7">
+									<Image File="Assets/file.png" Width="50" Height="50" Color="#fff" />
+								</Rectangle>
+								<Rectangle Color="#ECE6E8">
+									<Image File="Assets/folder.png" Width="50" Height="50" Color="#fff" />
+								</Rectangle>
+								<Rectangle Color="#DCD6E4">
+									<Image File="Assets/video.png" Width="70" Height="70" Color="#fff" />
+								</Rectangle>
+							</Grid>
+							<Clicked>
+								<Callback Handler="{toggleRightPanelOpen}"/>
+							</Clicked>	
+
+						</Panel>
+
+						<Panel ux:Name="leftPanel" Width="0%" Height="0%" Opacity="0">
+							<Rectangle ux:Name="leftPanelGradient" Layer="Background" Color="#fff">
+								<Shadow />
+								
+							</Rectangle>
+								
 							<DockPanel ux:Name="appDock">
-								<StackPanel Dock="Top" Background="#B65B36" Opacity="0.9">
-									<StatusBarBackground />
-									<Fuse.iOS.StatusBarConfig Style="Light" />
+								<StackPanel ux:Name="leftPanelDock" Dock="Top" Background="#98938A" Opacity="0.9">
 									<Panel>
-										<Image File="Assets/Icons/backButton.png" Alignment="CenterLeft" Margin="10" Height="20" Offset="0,2" />
-										<Text Value="FuseChat" TextAlignment="Center" Color="#fff" Font="Bold" FontSize="24" Margin="100,10,100,5"/>
+										<Image File="Assets/Icons/backButton.png" Alignment="CenterLeft" Margin="10" Height="20" Offset="0,2">
+											<Clicked>
+												<Callback Handler="{toggleLeftPanelOpen}"/>
+											</Clicked>
+										</Image>
+										<Text Value="Study Talk" TextAlignment="Center" Color="#fff" Font="Bold" FontSize="24" Margin="100,10,100,5"/>
 										<Image File="Assets/Icons/search.png" Alignment="CenterRight" Margin="0,0,40,0" Height="25" Offset="0,2">
 											<Clicked>
 												<Toggle Target="searchClick"/>
@@ -195,23 +262,32 @@
 										<Image File="Assets/Icons/menu.png" Alignment="CenterRight" Margin="10" Height="15" Offset="0,2">
 										</Image>
 										<LinearGradient>
-											<GradientStop Offset="0" Color="#00A2B0" />
-											<GradientStop Offset="1" Color="#00AC94" />
+											<GradientStop Offset="0" Color="#B1DCF2" />
+											<GradientStop Offset="1" Color="#B1DCF2" />
 										</LinearGradient>
 									</Panel>
 								</StackPanel>
 								<BottomBarBackground Dock="Bottom"/>
 								<Rectangle ux:Name="searchPanel" Color="#999" Height="0" Alignment="Top" Opacity="0.9">
-
+									
 								</Rectangle>
 								<WhileTrue ux:Name="searchClick">
 									<Change searchPanel.Height = "50" Duration="0.2"/>
 								</WhileTrue>
 								<ScrollView ux:Name="scrollView">
+									<Clicked>
+										<Callback Handler="{setLeftPanelOpenTrue}"/>
+									</Clicked>				
+									<LinearGradient AngleDegrees="90">									
+										<GradientStop Offset="0" Color="#CDEAF7"/>
+										<GradientStop Offset="0.4" Color="#ECE6E8"/>
+										<GradientStop Offset="0.6" Color="#DCD6E4"/>
+										<GradientStop Offset="1" Color="#A8BDC7"/>
+									</LinearGradient>			
 									<StackPanel Orientation="Vertical">
 										<Each Items="{messages}">
 											<Panel>
-												<Panel Background="#fff" ux:Name="contents">
+												<Panel ux:Name="contents">
 													<DockPanel Margin="7,1,7,0">
 														<Circle ux:Name="profile" Height="40" Width="40" Dock="Left" Margin="7,7,0,7" Alignment="TopLeft">
 															<ImageFill File="{icon}" />
@@ -220,12 +296,12 @@
 														<StackPanel ux:Name="messageStackPanel" Margin="7,3,7,7">
 															<Text Font="Regular" Value="{sender}" FontSize="14" Color="#555" />
 															<StackPanel Alignment="CenterLeft" MaxWidth="400" Orientation="Horizontal">
-																<Rectangle CornerRadius="10" MaxWidth="200" Color="#61C2B7">
+																<Rectangle CornerRadius="10" MaxWidth="200" Color="#98938A">
 																	<Text TextWrapping="Wrap" Font="Light" Value="{content}" FontSize="14" Color="#fff" Margin="10,5,10,5" TextAlignment="Left" />
 																	<Shadow Angle="109" Size="0.5" Distance="1" Color="#999" />
 																	<LinearGradient AngleDegrees="45">
-																		<GradientStop Offset="0" Color="#00A2B1"/>
-																		<GradientStop Offset="1" Color="#00AC94"/>
+																		<GradientStop Offset="0" Color="#8194A9"/>
+																		<GradientStop Offset="1" Color="#8194A9"/>
 																	</LinearGradient>
 																</Rectangle>
 																<Text Font="Regular" Value="{time}" FontSize="10" Color="#999" Alignment="BottomLeft" Margin="5,0" />
@@ -244,7 +320,7 @@
 									</StackPanel>
 								</ScrollView>
 								<DockPanel ux:Name="bottomDock" Dock="Bottom">
-									<Panel Color="#aaa" ux:Name="writeChat" Alignment="Bottom">
+									<Panel Color="#D3E0E7" ux:Name="writeChat" Alignment="Bottom">
 										<Rectangle ux:Name="bottomOpen" Width="0" Height="15" Alignment="TopLeft"/>
 										<Image ux:Name="bottomPlus" File="Assets/Icons/plus.png" Width="15" Height="15" Alignment="TopLeft" Margin="8,10,10,10">
 											<Clicked>
@@ -260,7 +336,7 @@
 
 											</TextInput>
 										</Rectangle>
-										<Rectangle Color="#00AB96" CornerRadius="30" Margin="5,5,5,0" Height="25" Width="40" Alignment="TopRight">
+										<Rectangle Color="#5F87B2" CornerRadius="30" Margin="5,5,5,0" Height="25" Width="40" Alignment="TopRight">
 											<Text Value="Send" Color="#fff" FontSize="12" TextAlignment="Center" Font="Bold" Alignment="Center" />
 
 											<Clicked>
@@ -275,24 +351,11 @@
 									</Panel>
 								</DockPanel>
 							</DockPanel>
-						</Panel>
-
-						<Panel ux:Name="rightPanel" Width="0%" Height="0%" Opacity="0">
-							<Rectangle ux:Name="rightPanelGradient" Layer="Background" Color="#EFE6EF">
-								<Shadow />
-							</Rectangle>
-						</Panel>
-
-						<Panel ux:Name="todoListPanel" Width="70%" Height="60%" Opacity="0">
-							<Rectangle ux:Name="todoListPanelGradient" Layer="Background" Color="#333333">
-								<Shadow />
-								<Text Color="#eee" FontSize="14" Value="To-Do List" Margin="10,15,10,10" Alignment="TopLeft" />
-							</Rectangle>
-						</Panel>
+						</Panel>					
 
 						<Panel ux:Name="bottomPanel" Width="70%" Height="60%" Opacity="0">
 							<Rectangle ux:Name="bottomPanelGradient" Layer="Background" Color="#eee" CornerRadius="5">
-								<Shadow />
+								<Shadow/>
 							</Rectangle>
 							<Scaling ux:Name="bottomPanelScaling" Y="0.8" X="0.85" />
 
