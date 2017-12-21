@@ -60,8 +60,8 @@
 				</Grid>
 				<Rectangle Height="1" Margin="0,0,0,0" Color="#333c48" />
 			</StackPanel>
-			<Rectangle ux:Name="searchPanel" Color="#999" Height="0" Alignment="Top" Opacity=".9">
-			</Rectangle>
+			<TextBox ux:Name="searchPanel" Background="White" Height="0" Alignment="Top" Opacity=".9">
+			</TextBox>
 			<WhileTrue ux:Name="searchClick">
 				<Change searchPanel.Height="30" Duration="0.2"/>
 			</WhileTrue>	
