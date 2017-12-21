@@ -16,12 +16,12 @@ function Page(name, image, todo, loc, tag, no, stars, people){
 
 var pages = Observable();
 
-pages.add(new Page("TEPS Listening", "/Users/mac/Dropbox/[1 STORAGE]/2017-Fall/창의적통합설계1/Stardy/Assets/TEPS.png", 56, "강남역", "#TEPS #LC #Voca", 10238, 3, ["/Users/mac/Dropbox/[1 STORAGE]/2017-Fall/창의적통합설계1/Stardy/Assets/Faces/model-001.jpg", "/Users/mac/Dropbox/[1 STORAGE]/2017-Fall/창의적통합설계1/Stardy/Assets/Faces/model-002.jpg", "/Users/mac/Dropbox/[1 STORAGE]/2017-Fall/창의적통합설계1/Stardy/Assets/Faces/model-003.jpg"]));
-pages.add(new Page("ICELAND", "/Users/mac/Dropbox/[1 STORAGE]/2017-Fall/창의적통합설계1/Stardy/Assets/Iceland.png", 64, -18, "The rocky landscape of Iceland.", 10239, 4, ["Assets/Faces/model-004.jpg", "Assets/Faces/model-005.jpg", "Assets/Faces/model-006.jpg"]));
-pages.add(new Page("NORWAY", "/Users/mac/Dropbox/[1 STORAGE]/2017-Fall/창의적통합설계1/Stardy/Assets/Norway.png", 60, 6, "Green mountain forest in Norway.", 10241, 4, ["Assets/Faces/model-007.jpg", "Assets/Faces/model-008.jpg", "Assets/Faces/model-009.jpg"]));
-pages.add(new Page("TAIWAN", "/Users/mac/Dropbox/[1 STORAGE]/2017-Fall/창의적통합설계1/Stardy/Assets/Taiwan.png", 23, 120, "Dusk over the fields of Taiwan.", 10241, 3, ["Assets/Faces/model-010.jpg", "Assets/Faces/model-005.jpg", "Assets/Faces/model-003.jpg", "Assets/Faces/model-006.jpg"]));
-pages.add(new Page("THAILAND", "/Users/mac/Dropbox/[1 STORAGE]/2017-Fall/창의적통합설계1/Stardy/Assets/Thailand.png", 15, 102, "A white silky beach in Thailand.", 10241, 4, ["Assets/Faces/model-004.jpg", "Assets/Faces/model-001.jpg"]));
-pages.add(new Page("TURKEY", "/Users/mac/Dropbox/[1 STORAGE]/2017-Fall/창의적통합설계1/Stardy/Assets/Turkey.png", 40, 34, "Turkish house with a mountain view.", 10241, 3, ["Assets/Faces/model-007.jpg", "Assets/Faces/model-005.jpg", "Assets/Faces/model-004.jpg", "Assets/Faces/model-003.jpg"]));
+pages.add(new Page("TEPS Listening", "Assets/TEPS.png", 56, "강남역", "#TEPS #LC #Voca", 10238, 3, ["Assets/Faces/model-001.jpg", "Assets/Faces/model-002.jpg", "Assets/Faces/model-003.jpg"]));
+pages.add(new Page("ICELAND", "Assets/Iceland.png", 64, -18, "The rocky landscape of Iceland.", 10239, 4, ["Assets/Faces/model-004.jpg", "Assets/Faces/model-005.jpg", "Assets/Faces/model-006.jpg"]));
+pages.add(new Page("NORWAY", "Assets/Norway.png", 60, 6, "Green mountain forest in Norway.", 10241, 4, ["Assets/Faces/model-007.jpg", "Assets/Faces/model-008.jpg", "Assets/Faces/model-009.jpg"]));
+pages.add(new Page("TAIWAN", "Assets/Taiwan.png", 23, 120, "Dusk over the fields of Taiwan.", 10241, 3, ["Assets/Faces/model-010.jpg", "Assets/Faces/model-005.jpg", "Assets/Faces/model-003.jpg", "Assets/Faces/model-006.jpg"]));
+pages.add(new Page("THAILAND", "Assets/Thailand.png", 15, 102, "A white silky beach in Thailand.", 10241, 4, ["Assets/Faces/model-004.jpg", "Assets/Faces/model-001.jpg"]));
+pages.add(new Page("TURKEY", "Assets/Turkey.png", 40, 34, "Turkish house with a mountain view.", 10241, 3, ["Assets/Faces/model-007.jpg", "Assets/Faces/model-005.jpg", "Assets/Faces/model-004.jpg", "Assets/Faces/model-003.jpg"]));
 
 
 var pagesView = pages.map(function(item, index){
