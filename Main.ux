@@ -1,9 +1,0 @@
-<App>
-	<Router ux:Name="router" />
-    <Navigator DefaultPath="Login">
-    	<Login ux:Template="Login" router="router" />
-        <MainView ux:Template="MainView" router="router" />
-        <TimeLine ux:Template="TimeLine" router="router" />
-        <AddGroup ux:Template="AddGroup" router="router" />
-    </Navigator>
-</App>

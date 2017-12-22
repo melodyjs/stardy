@@ -1,0 +1,205 @@
+
+<Page ux:Class="MainView">
+	<Router ux:Dependency="router" />
+	<Fuse.iOS.StatusBarConfig Style="Light" />
+	<JavaScript File="MainView.js" />
+	<JavaScript>
+    router.bookmark({
+        name: "myBookmark",
+        path: ["TimeLine", {}]
+    });
+	</JavaScript>
+
+	<LinearGradient StartPoint="0,0" EndPoint="0,1">
+		<GradientStop Offset="0" Color="#EFE6EF" />
+		<GradientStop Offset="1" Color="#8FBEE9" />
+	</LinearGradient>
+
+	<Grid ux:Name="upperGrid" ColumnCount="3" Height="20" Alignment="Top" Margin="20">
+		<Image File="Assets/Icons/search.png" Alignment="Left" />
+		<Text Value="내 스터디 목록" FontSize = "14" Color="#ffffff" Alignment="Center" />
+		<Image File="Assets/Icons/gps.png" Alignment="Right" />
+
+		<WhileTrue Value="{cardOpen}">
+			<Move Y="-0.1" RelativeTo="ParentSize" Duration="0.2"/>
+		</WhileTrue>
+	</Grid>
+
+	<Grid ux:Name="lowerGrid" ColumnCount="3" Height="30" Alignment="Bottom" Margin="20">
+		<Image File="Assets/Icons/addlocation.png" />
+		<Image File="Assets/Icons/location.png">
+			<Clicked>
+				<RouterModify How="Push" Bookmark="myBookmark" Transition="Transition"/>
+			</Clicked>
+		</Image>
+		<Image File="Assets/Icons/person.png" />
+
+		<WhileTrue Value="{cardOpen}">
+			<Move Y="0.1" RelativeTo="ParentSize" Duration="0.2"/>
+		</WhileTrue>
+	</Grid>
+
+	<Panel ux:Class="CardMain" Opacity="0.4">
+		<Scaling ux:Name="pageScaling" Factor="0.95" />
+
+		<ActivatingAnimation>
+
+			<Change this.Opacity="1" Duration="0.5" />
+			<Change pageScaling.Factor="1" Duration="0.5" />
+
+			<Move Target="topPanel" Y="-0.13" RelativeTo="ParentSize" Duration="0.5" />
+			<Change bottomPanelScaling.X="1" Duration="0.5" />
+			<Change bottomPanelScaling.Y="1" Duration="0.5" />
+			<Change bottomPanel.Opacity="1" Duration="0.5" />
+ 
+
+			<WhileTrue Value="{cardOpen}">
+
+					<Change topPanel.Width="100%" Duration="0.2"/>
+					<Change topPanel.Height="30%" Duration="0.2"/>
+					<Change topPanelImage.CornerRadius="0" Duration="0.2"/>
+					<Change topPanelGradient.CornerRadius="0" Duration="0.2"/>
+					<Move Target="topPanel" Y="-0.22" RelativeTo="ParentSize" Duration="0.2"/>
+
+					<Change leftPanel.Width="50%" Duration="0.2"/>
+					<Change leftPanel.Height="40%" Duration="0.2"/>
+					<Change leftPanel.Opacity="1" Duration="0.2"/>
+					<Move Target="leftPanel" X="-0.25" RelativeTo="ParentSize" Duration="0.2"/>
+
+					<Change rightPanel.Width="50%" Duration="0.2"/>
+					<Change rightPanel.Height="40%" Duration="0.2"/>
+					<Change rightPanel.Opacity="1" Duration="0.2"/>
+					<Move Target="rightPanel" X="0.25" RelativeTo="ParentSize" Duration="0.2"/>
+
+					<Change todoListPanel.Width="100%" Duration="0.2"/>
+					<Change todoListPanel.Height="30%" Duration="0.2"/>
+					<Change todoListPanel.Opacity="1" Duration="0.2"/>
+					<Change todoListText.Opacity="1" Duration="0.2"/>
+					<Move Target="todoListPanel" Y="0.35" RelativeTo="ParentSize" Duration="0.2"/>
+					<Move Target="todoListText" Y="0.35" RelativeTo="ParentSize" Duration="0.2"/>
+
+			</WhileTrue>
+
+		</ActivatingAnimation>
+		<EnteringAnimation Scale="0.5">
+			<Move X="-1.4" RelativeTo="ParentSize" Duration="0.5" />
+			<Callback Handler="{cardMoveRight}"/>
+
+			<WhileTrue Value="{cardOpen}">
+				<Move X="-0.2" RelativeTo="ParentSize" Duration="0.2" />
+			</WhileTrue>
+
+		</EnteringAnimation>
+		<ExitingAnimation Scale="0.5">
+			<Move X="1.4" RelativeTo="ParentSize" Duration="0.5" />
+			<Callback Handler="{cardMoveLeft}"/>
+
+			<WhileTrue Value="{cardOpen}">
+				<Move X="0.2" RelativeTo="ParentSize" Duration="0.2" />
+			</WhileTrue>
+
+		</ExitingAnimation>
+
+		<Panel ux:Name="topPanel" Width="60%" Height="50%">
+			<Rectangle ux:Name="topPanelGradient" CornerRadius="5" Layer="Background" >
+				<LinearGradient StartPoint="0,0" EndPoint="0,1">
+					<GradientStop Offset="0" Color="#0004" />
+					<GradientStop Offset="0.25" Color="#0000" />
+					<GradientStop Offset="0.7" Color="#0000" />
+					<GradientStop Offset="0.85" Color="#0007" />
+					<GradientStop Offset="1" Color="#0007" />
+				</LinearGradient>
+			</Rectangle>
+			<Text Value="{item.name}" FontSize="24" Color="#ddd" Alignment="HorizontalCenter" Margin="10">
+				<Shadow Mode="PerPixel" />
+			</Text>
+			<Grid RowCount="2" Margin="10" Alignment="Bottom">
+				<Image File="Assets/Icons/location.png" Width="13" Height="13" Alignment="Center" Margin="10"/>
+				<Text Value="{item.loc}" FontSize="10" Color="#fff" Alignment="Center"/>
+			</Grid>
+			<Rectangle ux:Name="topPanelImage" Layer="Background" CornerRadius="5" >
+				<ImageFill File="{item.image}" StretchMode="UniformToFill" WrapMode="ClampToEdge" />
+				<Shadow/>
+			</Rectangle>
+
+			<Clicked>
+				<Callback Handler="{changeCardOpen}"/>
+			</Clicked>
+
+		</Panel>
+
+		<Panel ux:Name="leftPanel" Width="0%" Height="0%" Opacity="0">
+			<Rectangle ux:Name="leftPanelGradient" Layer="Background" Color="#eee">
+				<Shadow />
+			</Rectangle>
+		</Panel>
+
+		<Panel ux:Name="rightPanel" Width="0%" Height="0%" Opacity="0">
+			<Rectangle ux:Name="rightPanelGradient" Layer="Background" Color="#eee">
+				<Shadow />
+			</Rectangle>
+		</Panel>
+
+		<Panel ux:Name="todoListPanel" Width="70%" Height="60%" Opacity="0">
+			<Text ux:Name="todoListText" Color="#fff" FontSize="14" Value="스터디 성취도" Alignment="Center" Opacity="1"/>
+			<Rectangle ux:Name="todoListPanelGradient" Layer="Background" Color="#fff">
+				<Shadow />
+				<Text ux:Name="todoListtt" Color="#fff" FontSize="14" Value="스터디 성취도" Alignment="Center" Opacity="1"/>
+			</Rectangle>
+			<Text ux:Name="todoListt" Color="#fff" FontSize="14" Value="스터디 성취도" Alignment="Center" Opacity="1"/>
+		</Panel>
+
+		<Panel ux:Name="bottomPanel" Width="70%" Height="60%" Opacity="0">
+			<Rectangle ux:Name="bottomPanelGradient" Layer="Background" Color="#eee" CornerRadius="5">
+				<Shadow />
+			</Rectangle>
+			<Scaling ux:Name="bottomPanelScaling" Y="0.8" X="0.85" />
+
+			<Grid Rows="20,20,1*" ColumnCount="2" Alignment="Bottom" Height="30%" Padding="20,10">
+				<Text Color="#2D92FF" FontSize="14" Row="0" Column="0" ColumnSpan="2" Value="{item.tag}" />
+				<Text Color="#444" FontSize="12" Row="1" Column="0" Value="스터디 성취도" Alignment="VerticalCenter" />
+
+					<StackPanel Orientation="Horizontal" Row="1" Column="1" Alignment="CenterRight">
+						<StackPanel Orientation="Horizontal">
+							<Each Count="{item.stars}">
+								<Image File="Assets/Icons/star.png" Width="20" Height="20" Color="#99f" />
+							</Each>
+						</StackPanel>
+						<StackPanel Orientation="Horizontal">
+							<Each Count="{item.starsRest}">
+								<Image File="Assets/Icons/star.png" Width="20" Height="20" Color="#999" />
+							</Each>
+						</StackPanel>
+					</StackPanel>
+
+					<Grid ColumnCount="2" ColumnSpan="2" Row="2" Column="0">
+						<StackPanel Orientation="Horizontal">
+							<Each Items="{item.people}">
+								<Circle Width="30" Height="30" Color="Red" Margin="0,0,-6,0">
+									<Stroke Brush="#ddd" Width="2" />
+									<ImageFill File="{}" WrapMode="ClampToEdge" />
+								</Circle>
+							</Each>
+						</StackPanel>
+						<StackPanel Alignment="CenterRight" ItemSpacing="2">
+							<Circle Width="4" Height="4" Color="#aaa" />
+							<Circle Width="4" Height="4" Color="#aaa" />
+							<Circle Width="4" Height="4" Color="#aaa" />
+						</StackPanel>
+					</Grid>
+				</Grid>
+			</Panel>
+		</Panel>
+
+		<Panel>
+			<PageControl InactiveState="Unchanged" Transition="None">
+				<NavigationMotion GotoEasing="QuadraticOut" GotoDuration="0.3" />
+				<Each Items="{pagesView}">
+					<CardMain />
+				</Each>
+			</PageControl>
+	</Panel>
+	
+</Page>
+	
+

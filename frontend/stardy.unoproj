@@ -1,0 +1,26 @@
+{
+  "Packages": [
+    "Fuse",
+    "FuseJS"
+  ],
+  "Mobile": {
+  	"Orientations": "Portrait"
+  },
+  "Includes": [
+    "Login.js:File",
+    "Login.ux:UXFile",
+    "Main.ux:UXFile",
+    "MainView.js:File",
+    "MainView.ux:UXFile",
+    "TimeLine.js:File",
+    "TimeLine.ux:UXFile",
+    "Sidebar.ux:UXFile",
+    "NewsItem.ux:UXFile",
+    "AddGroup.ux:UXFile",
+    "AddGroup.js:File",
+    "AddPost.ux:UXFile",
+    "AddPost.js:File",
+    "Assets/*.png:Bundle",
+    "Assets/Faces/*.jpg:Bundle"
+  ]
+}

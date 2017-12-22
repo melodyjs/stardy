@@ -1,0 +1,80 @@
+<Page ux:Class="TimeLine">
+	<Router ux:Dependency="router" />
+	<JavaScript File="TimeLine.js" />
+	<EdgeNavigator ux:Name="EdgeNavigator">
+		<JavaScript>
+		var Observable = require("FuseJS/Observable");
+
+		var data = Observable();
+
+		fetch('http://az664292.vo.msecnd.net/files/P6FteBeij9A7jTXL-edgenavresponse.json')
+		.then(function(response) { return response.json(); })
+		.then(function(responseObject) { data.value = responseObject; });
+
+		module.exports = {
+			data: data
+		};
+		</JavaScript>
+
+		<LinearGradient StartPoint="0,0" EndPoint="0,1">
+			<GradientStop Offset="0" Color="#EFE6EF" />
+			<GradientStop Offset="1" Color="#8FBEE9" />
+		</LinearGradient>
+
+		<DockPanel ux:Name="content">
+
+			<StatusBarBackground Dock="Top" />
+			<BottomFrameBackground Dock="Bottom" />
+
+			<StackPanel Dock="Top">
+
+
+				<!-- This is the top ledge -->
+				<Grid Columns="auto,1*,auto">
+
+					<Rectangle Height="30" Margin="5,7,5,5" Alignment="CenterLeft">
+						<Clicked>
+							<RouterModify How="GoBack" Style="fromTop" />
+						</Clicked>
+						<Image File="Assets/Icons/backButton_black.png" />		
+					</Rectangle>
+
+					<Text FontSize="16" Alignment="Center" Value="담벼락" Margin="30,5,0,0">
+						<Font File="Assets/fonts/AlegreyaSans-Bold.otf" />
+					</Text>
+
+					<Panel Height="26" Width="80" Alignment="CenterRight">
+						<Panel Margin="5,5,35,5" Height="20" Width="20" Alignment="CenterLeft"> 
+							<Image File="Assets/search2.png">
+								<Clicked>
+									<Toggle Target="searchClick"/>
+								</Clicked>
+							</Image>
+						</Panel>
+
+						<!-- Write post -->
+						<Panel Margin="5,5,15,5" Height="20" Width="20" Alignment="CenterRight" Clicked="{newPost}">
+							<Image File="Assets/write_.png" />
+						</Panel>
+					</Panel>				
+				</Grid>
+				<Rectangle Height="1" Margin="0,0,0,0" Color="#333c48" />
+			</StackPanel>
+			<TextBox ux:Name="searchPanel" Background="White" Height="0" Alignment="Top" Opacity=".9">
+			</TextBox>
+			<WhileTrue ux:Name="searchClick">
+				<Change searchPanel.Height="30" Duration="0.2"/>
+			</WhileTrue>	
+
+			<!-- This is the main scroll area -->
+			<ScrollView>
+				<StackPanel Alignment="Top">
+					<Panel Height="7" />
+					<Each Items="{data.responseData}">
+						<NewsItem />
+					</Each>
+				</StackPanel>
+			</ScrollView>
+		</DockPanel>
+	</EdgeNavigator>
+</Page>

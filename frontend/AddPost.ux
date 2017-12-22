@@ -1,0 +1,38 @@
+<Page ux:Class="AddPost" Background="Black">
+	<Router ux:Dependency="router" />
+
+	<JavaScript File="AddPost.js" />
+
+	<LinearGradient StartPoint="0,0" EndPoint="0,1">
+		<GradientStop Offset="0" Color="#EFE6EF" />
+		<GradientStop Offset="1" Color="#8FBEE9" />
+	</LinearGradient>
+
+	<DockPanel>
+		<Grid ColumnCount="1" Dock="Bottom">
+			<Button Text="Add" Color="White" Clicked="{addClicked}"/>				
+			<Button Text="Cancel" Color="White" Clicked="{cancelClicked}"/>
+		</Grid>
+		
+		<ScrollView>
+			<StackPanel ItemSpacing="10" Padding="10">
+				<Text ux:Name="Image Field">Image</Text>
+				<TextBox Value="{image_address}" PlaceholderText="Enter image path" PlaceholderColor="White"/>
+				<Image Url="{image_address}"/>
+
+				<Text ux:Class="TitleTextPost" Opacity=".6" Margin="0,0,0,5" />
+
+				<StackPanel>
+					<TitleTextPost ux:Name="PostTitle">Post Title:</TitleTextPost>
+					<TextBox Value="{title}" PlaceholderText="Enter  Title Here" PlaceholderColor="White" />
+
+				</StackPanel>
+
+				<StackPanel>
+					<TitleTextPost ux:Name="PostContent">Content:</TitleTextPost>
+					<TextView Value="{post_content}" TextWrapping="Wrap"/>
+				</StackPanel>
+			</StackPanel>
+		</ScrollView>
+	</DockPanel>
+</Page>
