@@ -21,7 +21,7 @@
 	<!-- The header -->
 	<DockPanel Margin="10,0,0,15">
 		<Circle Dock="Left" Width="45" Height="45">
-			<ImageFill Url="{portrait}" WrapMode="ClampToEdge"/>
+			<Image File="{portrait}"/>
 		</Circle>
 
 		<DockPanel Margin="10,4,10,0">
@@ -40,7 +40,7 @@
 	</DockPanel>
 	
 	<!-- Main article body -->
-	<Image Url="{imageUrl}" />
+	<Image File="{imageUrl}" />
 	<Header Value="{headline}" />
 	<Article Value="{body}" />
 
@@ -50,11 +50,11 @@
 	</Text>
 
 	<StackPanel Orientation="Horizontal" Margin="14,10,14,8">
-		<ActionIcon File="Assets/Icons/Like.png" />
+		<ActionIcon File="Assets/heart.png" />
 		<Stat Value="{numLikes}" />
-		<ActionIcon File="Assets/Icons/Comment.png" />
+		<ActionIcon File="Assets/comment.png" />
 		<Stat Value="{numComments}" />
-		<ActionIcon File="Assets/Icons/Share.png" />
+		<ActionIcon File="Assets/share.png" />
 	</StackPanel>
 
 	<HorizontalBar />
