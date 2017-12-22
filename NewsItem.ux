@@ -26,7 +26,7 @@
 
 		<DockPanel Margin="10,4,10,0">
 			<StackPanel Dock="Top" Orientation="Horizontal">
-				<Name Value="{author}" />
+				<Name Value="Someone unknown" />
 			</StackPanel>
 			<StackPanel Dock="Bottom" Orientation="Horizontal">
 				<SubText Value="{postAge}" />
