@@ -22,4 +22,5 @@ build/Local/Designer/cache/ux13/ActionIcon.g.uno
 build/Local/Designer/cache/ux13/Stat.g.uno
 build/Local/Designer/cache/ux13/AddGroup.g.uno
 build/Local/Designer/cache/ux13/TitleText.g.uno
+build/Local/Designer/cache/ux13/Profile.g.uno
 build/Local/Designer/cache/ux13/stardy.unoproj.g.uno

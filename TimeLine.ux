@@ -6,10 +6,47 @@
 		var Observable = require("FuseJS/Observable");
 
 		var data = Observable();
+		var json = { "responseData":
+	[
+		{ 
+			"author": "펭귄",
+			"portrait": "Assets/penguin.png",
+			"location": "서울, 12km",
+			"source": "뇌피셜",
+			"postAge": "22 min",
+			"imageUrl": "Assets/OTL.png",
+			"headline": "오늘 텝스 저만 어려웠나요?",
+			"body": "나름대로 연습도 공부도 많이 해보고 갔다고 생각했는데 망한 것 같아요. 듣기... ㅠㅠ 다른 분들은 어떠셨어요? 그냥 남극가야될까봐요. ",
+			"numLikes": "177",
+			"numComments": "215"
+		},
+		{
+			"author": "사슴",
+			"portrait": "Assets/sasum.png",
+			"location": "Oslo, 124km",
+			"source": "Jesus Christ",
+			"postAge": "58 min",
+			"headline": "여러분 곧 크리스마스에요!",
+			"body": "다들 시험 준비하느라, 자기 계발하느라 바쁘겠지만 크리스마스 때는 가족들과 연인과 편안한 시간 보낼 수 있으면 좋겠어요! 메리 크리스마스",
+			"numLikes": "56",
+			"numComments": "589"
+		},
+		{
+			"author": "까치",
+			"portrait": "Assets/ggachi.jpg",
+			"location": "과천",
+			"source": "네이버 사전",
+			"postAge": "35 min",
+			"ImageUrl": "imageUrl",
+			"headline": "오늘의 영단어 올려드립니다.",
+			"body": "티끌 모아 태산! dichotomy: 이분법",
+			"numLikes": "35",
+			"numComments": "10"
+		}
+	]
+}; 
 
-		fetch('http://az664292.vo.msecnd.net/files/P6FteBeij9A7jTXL-edgenavresponse.json')
-		.then(function(response) { return response.json(); })
-		.then(function(responseObject) { data.value = responseObject; });
+		data.value = json;
 
 		module.exports = {
 			data: data

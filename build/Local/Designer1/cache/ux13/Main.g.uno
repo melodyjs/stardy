@@ -85,6 +85,27 @@ public partial class Main: Fuse.App
         }
         static global::Uno.UX.Selector __selector0 = "AddGroup";
     }
+    [Uno.Compiler.UxGenerated]
+    public partial class Template4: Uno.UX.Template
+    {
+        [Uno.WeakReference] internal readonly Main __parent;
+        [Uno.WeakReference] internal readonly Main __parentInstance;
+        public Template4(Main parent, Main parentInstance): base("Profile", false)
+        {
+            __parent = parent;
+            __parentInstance = parentInstance;
+        }
+        static Template4()
+        {
+        }
+        public override object New()
+        {
+            var __self = new global::Profile(__parent.router);
+            __self.Name = __selector0;
+            return __self;
+        }
+        static global::Uno.UX.Selector __selector0 = "Profile";
+    }
     internal global::Fuse.Navigation.Router router;
     static Main()
     {
@@ -229,12 +250,14 @@ public partial class Main: Fuse.App
         var MainView = new Template1(this, this);
         var TimeLine = new Template2(this, this);
         var AddGroup = new Template3(this, this);
+        var Profile = new Template4(this, this);
         router.Name = __selector0;
         temp17.DefaultPath = "Login";
         temp17.Templates.Add(Login);
         temp17.Templates.Add(MainView);
         temp17.Templates.Add(TimeLine);
         temp17.Templates.Add(AddGroup);
+        temp17.Templates.Add(Profile);
         this.Children.Add(router);
         this.Children.Add(temp17);
     }
