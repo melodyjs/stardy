@@ -16,9 +16,9 @@ function Page(name, image, todo, loc, tag, no, stars, people){
 
 var pages = Observable();
 
-pages.add(new Page("TEPS Listening", "/Users/mac/Dropbox/[1 STORAGE]/2017-Fall/창의적통합설계1/Stardy/Assets/TEPS.png", 56, "강남역", "#TEPS #LC #Voca", 10238, 3, ["/Users/mac/Dropbox/[1 STORAGE]/2017-Fall/창의적통합설계1/Stardy/Assets/Faces/model-001.jpg", "/Users/mac/Dropbox/[1 STORAGE]/2017-Fall/창의적통합설계1/Stardy/Assets/Faces/model-002.jpg", "/Users/mac/Dropbox/[1 STORAGE]/2017-Fall/창의적통합설계1/Stardy/Assets/Faces/model-003.jpg"]));
-pages.add(new Page("ICELAND", "/Users/mac/Dropbox/[1 STORAGE]/2017-Fall/창의적통합설계1/Stardy/Assets/Iceland.png", 64, -18, "The rocky landscape of Iceland.", 10239, 4, ["Assets/Faces/model-004.jpg", "Assets/Faces/model-005.jpg", "Assets/Faces/model-006.jpg"]));
-pages.add(new Page("NORWAY", "/Users/mac/Dropbox/[1 STORAGE]/2017-Fall/창의적통합설계1/Stardy/Assets/Norway.png", 60, 6, "Green mountain forest in Norway.", 10241, 4, ["Assets/Faces/model-007.jpg", "Assets/Faces/model-008.jpg", "Assets/Faces/model-009.jpg"]));
+pages.add(new Page("TEPS Listening", "/Users/mac/Dropbox/[1 STORAGE]/2017-Fall/창의적통합설계1/Stardy/Assets/im.jpg", 56, "강남역", "#TEPS #LC #Voca", 10238, 3, ["/Users/mac/Dropbox/[1 STORAGE]/2017-Fall/창의적통합설계1/Stardy/Assets/Faces/model-001.jpg", "/Users/mac/Dropbox/[1 STORAGE]/2017-Fall/창의적통합설계1/Stardy/Assets/Faces/model-002.jpg", "/Users/mac/Dropbox/[1 STORAGE]/2017-Fall/창의적통합설계1/Stardy/Assets/Faces/model-003.jpg"]));
+pages.add(new Page("SNU LAWSCHOOL", "/Users/mac/Dropbox/[1 STORAGE]/2017-Fall/창의적통합설계1/Stardy/Assets/snu.jpg", 64, "서울대입구", "#서울대 #로스쿨", 10239, 4, ["/Users/mac/Dropbox/[1 STORAGE]/2017-Fall/창의적통합설계1/Stardy/Assets/Faces/model-004.jpg", "/Users/mac/Dropbox/[1 STORAGE]/2017-Fall/창의적통합설계1/Stardy/Assets/Faces/model-005.jpg", "/Users/mac/Dropbox/[1 STORAGE]/2017-Fall/창의적통합설계1/Stardy/Assets/Faces/model-006.jpg"]));
+pages.add(new Page("임용고시", "/Users/mac/Dropbox/[1 STORAGE]/2017-Fall/창의적통합설계1/Stardy/Assets/TEPS.png", 60, "서울대입구", "#서울대 #임용고시 #2차", 10241, 4, ["/Users/mac/Dropbox/[1 STORAGE]/2017-Fall/창의적통합설계1/Stardy/Assets/Faces/model-007.jpg", "/Users/mac/Dropbox/[1 STORAGE]/2017-Fall/창의적통합설계1/Stardy/Assets/Faces/model-008.jpg", "/Users/mac/Dropbox/[1 STORAGE]/2017-Fall/창의적통합설계1/Stardy/Assets/Faces/model-009.jpg"]));
 pages.add(new Page("TAIWAN", "/Users/mac/Dropbox/[1 STORAGE]/2017-Fall/창의적통합설계1/Stardy/Assets/Taiwan.png", 23, 120, "Dusk over the fields of Taiwan.", 10241, 3, ["Assets/Faces/model-010.jpg", "Assets/Faces/model-005.jpg", "Assets/Faces/model-003.jpg", "Assets/Faces/model-006.jpg"]));
 pages.add(new Page("THAILAND", "/Users/mac/Dropbox/[1 STORAGE]/2017-Fall/창의적통합설계1/Stardy/Assets/Thailand.png", 15, 102, "A white silky beach in Thailand.", 10241, 4, ["Assets/Faces/model-004.jpg", "Assets/Faces/model-001.jpg"]));
 pages.add(new Page("TURKEY", "/Users/mac/Dropbox/[1 STORAGE]/2017-Fall/창의적통합설계1/Stardy/Assets/Turkey.png", 40, 34, "Turkish house with a mountain view.", 10241, 3, ["Assets/Faces/model-007.jpg", "Assets/Faces/model-005.jpg", "Assets/Faces/model-004.jpg", "Assets/Faces/model-003.jpg"]));
@@ -107,22 +107,22 @@ function Message(icon, sender, time, content) {
 var sendText = Observable();
 
 var messages = Observable(
-	new Message("Assets/Contacts/Contact2.png", "Santa", "11/29 PM 6:23", "I heard you went to school without doing your homework."),
-	new Message("Assets/Contacts/Contact3.png", "Gina", "11/29 PM 6:23", "Gotcha"),
-	new Message("Assets/Contacts/Contact4.png", "John", "11/29 PM 6:23", "I just got shot up bad at the Wounded Knee. I took a bullet to the knee."),
-	new Message("Assets/Contacts/Contact1.png", "Steve", "11/29 PM 6:24", "I'm telling you, there were penguins everywhere. As far as the eye could see."),
-	new Message("Assets/Contacts/Contact2.png", "Santa", "11/29 PM 6:24", "I heard you went to school without doing your homework."),
-	new Message("Assets/Contacts/Contact3.png", "Gina", "11/29 PM 6:25", "Sorry, babes, I am running a little late tonight, can you just start without me?"),
-	new Message("Assets/Contacts/Contact4.png", "John", "11/29 PM 6:40", "I just got shot up bad at the Wounded Knee. I took a bullet to the knee."),
-	new Message("Assets/Contacts/Contact1.png", "Steve", "11/29 PM 6:41", "I'm telling you, there were penguins everywhere. As far as the eye could see."),
-	new Message("Assets/Contacts/Contact2.png", "Santa", "11/29 PM 6:41", "I heard you went to school without doing your homework."),
-	new Message("Assets/Contacts/Contact3.png", "Gina", "11/29 PM 6:43", "Sorry, babes, I am running a little late tonight, can you just start without me?"),
-	new Message("Assets/Contacts/Contact4.png", "John", "11/29 PM 6:44", "I just got shot up bad at the Wounded Knee. I took a bullet to the knee."),
-	new Message("Assets/Contacts/Contact1.png", "Steve", "11/29 PM 6:44", "I'm telling you, there were penguins everywhere. As far as the eye could see."),
-	new Message("Assets/Contacts/Contact2.png", "Santa", "11/29 PM 6:51", "I heard you went to school without doing your homework."),
-	new Message("Assets/Contacts/Contact3.png", "Gina", "11/29 PM 6:51", "Sorry, babes, I am running a little late tonight, can you just start without me?"),
-	new Message("Assets/Contacts/Contact4.png", "John", "11/29 PM 6:52", "I just got shot up bad at the Wounded Knee. I took a bullet to the knee."),
-	new Message("Assets/Contacts/Contact1.png", "Steve", "11/29 PM 6:52", "I'm telling you, there were penguins everywhere. As far as the eye could see.")
+	new Message("/Users/mac/Dropbox/[1 STORAGE]/2017-Fall/창의적통합설계1/Stardy/Assets/Contacts/Contact2.jpg", "Santa", "11/29 PM 6:23", "How are you?"),
+	new Message("/Users/mac/Dropbox/[1 STORAGE]/2017-Fall/창의적통합설계1/Stardy/Assets/Contacts/Contact3.jpeg", "Gina", "11/29 PM 6:23", "Great"),
+	new Message("/Users/mac/Dropbox/[1 STORAGE]/2017-Fall/창의적통합설계1/Stardy/Assets/Contacts/Contact4.jpg", "John", "11/29 PM 6:23", "Anyone who forgot there is meeting?"),
+	new Message("/Users/mac/Dropbox/[1 STORAGE]/2017-Fall/창의적통합설계1/Stardy/Assets/Contacts/Contact1.jpg", "Sara", "11/29 PM 6:24", "I think Kim is."),
+	new Message("/Users/mac/Dropbox/[1 STORAGE]/2017-Fall/창의적통합설계1/Stardy/Assets/Contacts/Contact2.jpg", "Santa", "11/29 PM 6:24", "lol!"),
+	new Message("/Users/mac/Dropbox/[1 STORAGE]/2017-Fall/창의적통합설계1/Stardy/Assets/Contacts/Contact3.jpeg", "Gina", "11/29 PM 6:25", "Sorry, just kidding."),
+	new Message("/Users/mac/Dropbox/[1 STORAGE]/2017-Fall/창의적통합설계1/Stardy/Assets/Contacts/Contact4.jpg", "John", "11/29 PM 6:40", "I just got shot up bad at the Wounded Knee. I took a bullet to the knee."),
+	new Message("/Users/mac/Dropbox/[1 STORAGE]/2017-Fall/창의적통합설계1/Stardy/Assets/Contacts/Contact1.jpg", "Sara", "11/29 PM 6:41", "I'm telling you, there were penguins everywhere. As far as the eye could see."),
+	new Message("/Users/mac/Dropbox/[1 STORAGE]/2017-Fall/창의적통합설계1/Stardy/Assets/Contacts/Contact2.jpg", "Santa", "11/29 PM 6:41", "I heard you went to school without doing your homework."),
+	new Message("/Users/mac/Dropbox/[1 STORAGE]/2017-Fall/창의적통합설계1/Stardy/Assets/Contacts/Contact3.jpeg", "Gina", "11/29 PM 6:43", "Sorry, babes, I am running a little late tonight, can you just start without me?"),
+	new Message("/Users/mac/Dropbox/[1 STORAGE]/2017-Fall/창의적통합설계1/Stardy/Assets/Contacts/Contact4.jpg", "John", "11/29 PM 6:44", "I just got shot up bad at the Wounded Knee. I took a bullet to the knee."),
+	new Message("/Users/mac/Dropbox/[1 STORAGE]/2017-Fall/창의적통합설계1/Stardy/Assets/Contacts/Contact1.jpg", "Steve", "11/29 PM 6:44", "I'm telling you, there were penguins everywhere. As far as the eye could see."),
+	new Message("/Users/mac/Dropbox/[1 STORAGE]/2017-Fall/창의적통합설계1/Stardy/Assets/Contacts/Contact2.jpg", "Santa", "11/29 PM 6:51", "I heard you went to school without doing your homework."),
+	new Message("/Users/mac/Dropbox/[1 STORAGE]/2017-Fall/창의적통합설계1/Stardy/Assets/Contacts/Contact3.jpeg", "Gina", "11/29 PM 6:51", "Sorry, babes, I am running a little late tonight, can you just start without me?"),
+	new Message("/Users/mac/Dropbox/[1 STORAGE]/2017-Fall/창의적통합설계1/Stardy/Assets/Contacts/Contact4.jpg", "John", "11/29 PM 6:52", "I just got shot up bad at the Wounded Knee. I took a bullet to the knee."),
+	new Message("/Users/mac/Dropbox/[1 STORAGE]/2017-Fall/창의적통합설계1/Stardy/Assets/Contacts/Contact1.jpg", "Sara", "11/29 PM 6:52", "I'm telling you, there were penguins everywhere. As far as the eye could see.")
 );
 
 function removeItem(sender) {

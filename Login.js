@@ -43,6 +43,7 @@ var rightPanelWide = Observable(false);
 function toggleRightPanelOpen(){
 	if (rightPanelOpen.value) {
 		rightPanelOpen.value = false;
+		rightHamburgerOpen = false;
 	}
 	else{
 		rightPanelOpen.value = true;
@@ -55,6 +56,29 @@ function setRightPanelOpenTrue(){
 	}
 }
 
+var rightHamburgerOpen = Observable(false);
+
+function toggleRightHamburgerOpen(){
+	if (rightHamburgerOpen.value) {
+		rightHamburgerOpen.value = false;
+	}
+	else{
+		rightHamburgerOpen.value = true;
+	}
+}
+
+function setRightHamburgerOpenTrue(){
+	if(!rightHamburgerOpen.value){
+		rightHamburgerOpen.value = true;
+	}
+}
+
+function setRightHamburgerOpenFalse(){
+	if(rightHamburgerOpen.value){
+		rightHamburgerOpen.value = false;
+	}
+}
+
 
 module.exports = {
 	items: items,
@@ -64,5 +88,9 @@ module.exports = {
 	setLeftPanelOpenTrue: setLeftPanelOpenTrue,
 	rightPanelOpen: rightPanelOpen,
 	toggleRightPanelOpen: toggleRightPanelOpen,
-	setRightPanelOpenTrue: setRightPanelOpenTrue
+	setRightPanelOpenTrue: setRightPanelOpenTrue,
+	rightHamburgerOpen: rightHamburgerOpen,
+	toggleRightHamburgerOpen: toggleRightHamburgerOpen,
+	setRightHamburgerOpenTrue: setRightHamburgerOpenTrue,
+	setRightHamburgerOpenFalse: setRightHamburgerOpenFalse
 };

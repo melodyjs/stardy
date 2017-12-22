@@ -3,11 +3,6 @@
 
 	<JavaScript File="AddGroup.js" />
 
-	<LinearGradient StartPoint="0,0" EndPoint="0,1">
-		<GradientStop Offset="0" Color="#EFE6EF" />
-		<GradientStop Offset="1" Color="#8FBEE9" />
-	</LinearGradient>
-
 	<DockPanel>
 		<Grid ColumnCount="1" Dock="Bottom">
 			<Button Text="Add" Color="White" Clicked={addClicked}/>				

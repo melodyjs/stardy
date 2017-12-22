@@ -18,6 +18,8 @@
     "NewsItem.ux:UXFile",
     "AddGroup.ux:UXFile",
     "AddGroup.js:File",
+    "Profile.ux:UXFile",
+    "Profile.js:File",
     "Assets/*.png:Bundle",
     "Assets/Faces/*.jpg:Bundle"
   ]
